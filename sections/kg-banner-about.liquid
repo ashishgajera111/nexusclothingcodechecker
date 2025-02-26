@@ -1,0 +1,130 @@
+{% comment %} <section class="kg-about-banner-section">
+  <div class="t4s-container">
+    <div class="kg-about-banner-wrapper">
+      <div class="kg-heading-sub_title">
+        <h3><span>Welcome to Nexus Clothing - Edgy Streetwear</span></h3>
+        <p>
+          Our brand marries bold, innovative designs with the gritty essence of street culture, creating distinctive
+          apparel for those who lead, not follow.
+        </p>
+      </div>
+      <div class="kg-about-banner-holder">
+        <div class="kg-about-banner-holder-item">
+          <figure>
+            <img
+              src="https://nexusclothing.com/cdn/shop/files/49a5f4f13f5ce95a141ba5908e0e2901_360x.png?v=1729885491"
+              alt=""
+            >
+          </figure>
+        </div>
+        <div class="kg-about-banner-holder-item">
+          <figure>
+            <img
+              src="https://nexusclothing.com/cdn/shop/files/6af043048cf93ba4a81b0733c00febe7_360x.jpg?v=1729885477"
+              alt=""
+            >
+          </figure>
+        </div>
+        <div class="kg-about-banner-holder-item">
+          <figure>
+            <img
+              src="https://nexusclothing.com/cdn/shop/files/d2f4ac554f1b0eff4025ecf108cb1ca5_360x.png?v=1729885478"
+              alt=""
+            >
+          </figure>
+        </div>
+        <div class="kg-about-banner-holder-item">
+          <figure>
+            <img
+              src="https://nexusclothing.com/cdn/shop/files/c59a77710ea0e202caccb8143132b364_360x.png?v=1729885492"
+              alt=""
+            >
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> {% endcomment %}
+
+<section class="kg-about-banner-section">
+  <div class="t4s-container">
+    <div class="kg-about-banner-wrapper">
+      {% if section.settings.heading != blank or section.settings.subheading != blank %}
+        <div class="kg-heading-sub_title">
+          {% if section.settings.heading != blank %}
+            <h3><span>{{ section.settings.heading }}</span></h3>
+          {% endif %}
+          {% if section.settings.subheading != blank %}
+            <p>{{ section.settings.subheading }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% assign has_images = false %}
+      {% for block in section.blocks %}
+        {% if block.type == "image" and block.settings.image != blank %}
+          {% assign has_images = true %}
+        {% endif %}
+      {% endfor %}
+
+      {% if has_images %}
+        <div class="kg-about-banner-holder">
+          {% for block in section.blocks %}
+            {% if block.type == "image" and block.settings.image != blank %}
+              <div class="kg-about-banner-holder-item">
+                <figure>
+                  <img src="{{ block.settings.image | img_url: 'original' }}" alt="">
+                </figure>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Banner about",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Welcome to Nexus Clothing - Edgy Streetwear"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Our brand marries bold, innovative designs with the gritty essence of street culture, creating distinctive apparel for those who lead, not follow."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner about",
+      "blocks": [
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

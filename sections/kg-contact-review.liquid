@@ -1,0 +1,206 @@
+{%- assign formId = 'RegisterForm' -%}
+{%- assign url = section.settings.url -%}
+{%- assign page_t = page.title | slice: -2, 2 -%}
+{%- assign tag = 'list_' | append: page_t -%}
+{% assign min = 300000000065 %}
+{% assign max = 800000000065 %}
+{% assign diff = max | minus: min %}
+{% assign randomNumber = 'now' | date: '%N' | modulo: diff | plus: min %}
+
+<div class="t4s-container mt__60 mb__100 type_faq type_rev">
+  <div class="row fl_center nt_boxed">
+    <div class="contact-form col-12 col-md-12 ">
+      <div class="kg-contact-reviews-heading-content row fl_center nt_boxed">{{ page.content }}</div>
+
+      {%- form 'create_customer', id: formId -%}
+        <script>
+          {%- if form.posted_successfully? -%}
+            window.location.href = '{{shop.url}}';
+          {%- endif -%}
+
+          {%- if form.errors -%}
+            window.location.href = '{{shop.url}}/pages/appreciate';
+          {%- endif -%}
+        </script>
+
+        <input type="hidden" id="customer_tags" name="customer[tags]" value="{{tag}}">
+
+        <p class="form-row tl">
+          <label for="{{ formId }}-FirstName">{{ 'customer.register.first_name' | t }}</label>
+          <input
+            type="text"
+            required="required"
+            name="customer[first_name]"
+            id="{{ formId }}-FirstName"
+            {% if form.first_name %}
+              value="{{ form.first_name }}"
+            {% endif %}
+            autocomplete="given-name"
+          >
+        </p>
+        <p class="form-row tl">
+          <label for="{{ formId }}-LastName">{{ 'customer.register.last_name' | t }}</label>
+          <input
+            type="text"
+            required="required"
+            name="customer[last_name]"
+            id="{{ formId }}-LastName"
+            {% if form.last_name %}
+              value="{{ form.last_name }}"
+            {% endif %}
+            autocomplete="family-name"
+          >
+        </p>
+
+        <p class="form-row tl">
+          <label for="{{ formId }}-email">
+            {{- 'customer.register.email' | t }}
+            <span class="required">*</span></label
+          >
+          <input
+            type="email"
+            required="required"
+            name="customer[email]"
+            id="{{ formId }}-email"
+            class="{% if form.errors contains 'email' %} input--error{% endif %}"
+            {% if form.email %}
+              value="{{ form.email }}"
+            {% endif %}
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="email"
+            aria-required="true"
+            {%- if form.errors contains 'email' %}
+              class="input--error" aria-invalid="true" aria-describedby="{{ formId }}-email-error"
+            {%- endif -%}
+          >
+          {%- if form.errors contains 'email' -%}
+            <span id="{{ formId }}-email-error" class="input-error-message">
+              <i class="facl facl-attention cr mr__5"></i>
+              <span>
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email }}.</span
+              >
+            </span>
+          {%- endif -%}
+        </p>
+        <p class="form-row tl" style="display:none">
+          <label for="{{ formId }}-password">
+            {{- 'customer.register.password' | t }}
+            <span class="required">*</span></label
+          >
+          <input
+            type="password"
+            value="pass_{{randomNumber}}"
+            name="customer[password]"
+            id="{{ formId }}-password"
+            class="{% if form.errors contains 'password' %} input--error{% endif %}"
+            aria-required="true"
+            {%- if form.errors contains 'password' %}
+              class="input--error" aria-invalid="true" aria-describedby="{{ formId }}-password-error"
+            {%- endif -%}
+          >
+          {%- if form.errors contains 'password' -%}
+            <span id="{{ formId}}-password-error" class="input-error-message">
+              <i class="facl facl-attention cr mr__5"></i>
+              <span>
+                {{- form.errors.translated_fields.password | capitalize }}
+                {{ form.errors.messages.password }}.</span
+              >
+            </span>
+          {%- endif -%}
+        </p>
+        {%- if settings.use_privacy_policy -%}
+          <p class="form-row tl">
+            {%- if settings.privacy_policy_link != blank -%}
+              {{ 'customer.register.privacy_policy_html' | t: link: pages[settings.privacy_policy_link].url }}
+            {%- else -%}
+              {{ 'customer.register.privacy_policy' | t }}
+            {%- endif -%}
+          </p>
+        {%- endif -%}
+
+        <div style="text-align: center;">
+          <input
+            type="submit"
+            style="
+              background: #b00b01;
+              color: white;
+              border-color: white;
+            "
+            value="Review us on Google"
+            class="btn mb__25 js_add_ld"
+          >
+        </div>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+{%- schema -%}
+{
+  "name": "Contact Reviews",
+  "class": "kg-contact-reviews-form-section",
+  "max_blocks": 20,
+  "settings": [
+    {
+      "type": "header",
+      "content": "== Design Options"
+    },
+    {
+          "type": "url",
+          "id": "url",
+          "label": "Redirect Url"
+     }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+       {
+        "type":"image_picker","id":"image","label":"Image"
+        },
+        {
+          "type": "checkbox","id": "use_border","label": "Use border?","default": true
+        },
+        {
+           "id": "video_url","type": "video_url","label": "Video URL","accept": ["youtube", "vimeo"],"default": "https://www.youtube.com/watch?v=_9VUPq3SxOc","info": "Accepts YouTube,vimeo links"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Content",
+      "settings": [
+       {
+        "type":"richtext","id":"text","label":"Content","default":"<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        }
+      ]
+    },
+    {
+      "type": "sig",
+      "name": "Your signature",
+      "limit": 1,
+      "settings": [
+         {
+          "type":"image_picker","id":"image","label":"Image Your signature"
+          }
+       ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Reviews",
+    }
+  ]
+}
+{%- endschema -%}

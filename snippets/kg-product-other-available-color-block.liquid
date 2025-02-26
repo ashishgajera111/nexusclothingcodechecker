@@ -1,0 +1,49 @@
+{%- if product.metafields.product.available -%}
+  <div class="kg-product-other-available-color-block-content">
+    <div class="kg-product-other-available-color-title">
+      <h4>Available In other colors :</h4>
+    </div>
+
+    <div class="kg-product-other-available-color-details">
+      {% for i in (1..15) %}
+        {% assign my_variable = 'link_' | append: i %}
+        {% assign pro = product.metafields.product[my_variable] %}
+        {% assign o_pro = all_products[pro] %}
+        {% assign pro_size = o_pro.title.size %}
+        {%- if pro_size != 0 -%}
+          {%- if o_pro.available == true -%}
+            {% assign featured_media = o_pro.selected_or_first_available_variant.featured_media
+              | default: o_pro.featured_media
+            %}
+            <a
+              href="{{o_pro.url}}"
+              title="{{o_pro.title}}"
+              class="kg-other-available-color-product-link {% unless o_pro.available %}kg-other-product-not-available{% endunless %}"
+            >
+              <img src="{{featured_media | img_url: 'large'}}">
+              {%- liquid
+                assign o_current_variant = o_pro.selected_or_first_available_variant
+                assign o_on_sale = false
+                if o_current_variant.compare_at_price > o_current_variant.price
+                  assign o_on_sale = true
+                endif
+                if o_pro.metafields.custom.disable_sale == true
+                  assign o_on_sale = false
+                endif
+              -%}
+              {%- if o_on_sale -%}
+                {% assign o_save = o_current_variant.compare_at_price
+                  | minus: o_current_variant.price
+                  | times: 100.0
+                  | divided_by: o_current_variant.compare_at_price
+                  | ceil
+                %}
+                <span class="kg-other-product-onsale"> {{ o_save }}% OFF </span>
+              {%- endif -%}
+            </a>
+          {%- endif -%}
+        {%- endif -%}
+      {% endfor %}
+    </div>
+  </div>
+{%- endif -%}

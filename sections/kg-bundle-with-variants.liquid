@@ -1,0 +1,475 @@
+<section class="bundle-multi-block-section kg-bundle-multi-block-section">
+  <div class="container" style="max-width: 100%; padding: 0 20px;">
+    <!-- Updated three-line heading -->
+    <h2 class="bundle-section-title-top">{{ section.settings.section_title_top }}</h2>
+    <h3 class="bundle-section-title-middle">{{ section.settings.section_title_middle }}</h3>
+    <p class="bundle-section-subtitle">{{ section.settings.section_subtitle }}</p>
+
+    <div class="bundle-blocks-wrap">
+      {% for block in section.blocks %}
+        {% if block.type == 'bundle_block' %}
+          {%- assign product1 = all_products[block.settings.product_1_handle] -%}
+          {%- assign product2 = all_products[block.settings.product_2_handle] -%}
+          {%- assign product3 = all_products[block.settings.product_3_handle] -%}
+
+          <div class="single-bundle-block">
+            <h3 class="bundle-title">{{ block.settings.bundle_title }}</h3>
+            {% if block.settings.bundle_description %}
+              <p class="bundle-desc">{{ block.settings.bundle_description }}</p>
+            {% endif %}
+
+            <!-- Single form for this bundle -->
+            <form action="/cart/add" method="post" class="bundle-form">
+              <div class="bundle-form-inner">
+                <!-- TOP ROW: Product Images with Quick View & Link -->
+                <div class="bundle-images-row">
+                  {% if block.settings.product_1_handle != blank and product1 and product1.featured_image != blank %}
+                    {% assign second_image1 = product1.images[1] %}
+                    <div class="bundle-image-col quickview">
+                      <a href="{{ product1.url }}">
+                        <img
+                          src="{{ product1.featured_image | img_url: 'medium' }}"
+                          alt="{{ product1.title }}"
+                          class="bundle-product-img primary"
+                        >
+                        {% if second_image1 %}
+                          <img
+                            src="{{ second_image1 | img_url: 'medium' }}"
+                            alt="{{ product1.title }} second"
+                            class="bundle-product-img secondary"
+                          >
+                        {% endif %}
+                      </a>
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.product_2_handle != blank and product2 and product2.featured_image != blank %}
+                    {% assign second_image2 = product2.images[1] %}
+                    <div class="bundle-image-col quickview">
+                      <a href="{{ product2.url }}">
+                        <img
+                          src="{{ product2.featured_image | img_url: 'medium' }}"
+                          alt="{{ product2.title }}"
+                          class="bundle-product-img primary"
+                        >
+                        {% if second_image2 %}
+                          <img
+                            src="{{ second_image2 | img_url: 'medium' }}"
+                            alt="{{ product2.title }} second"
+                            class="bundle-product-img secondary"
+                          >
+                        {% endif %}
+                      </a>
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.product_3_handle != blank and product3 and product3.featured_image != blank %}
+                    {% assign second_image3 = product3.images[1] %}
+                    <div class="bundle-image-col quickview">
+                      <a href="{{ product3.url }}">
+                        <img
+                          src="{{ product3.featured_image | img_url: 'medium' }}"
+                          alt="{{ product3.title }}"
+                          class="bundle-product-img primary"
+                        >
+                        {% if second_image3 %}
+                          <img
+                            src="{{ second_image3 | img_url: 'medium' }}"
+                            alt="{{ product3.title }} second"
+                            class="bundle-product-img secondary"
+                          >
+                        {% endif %}
+                      </a>
+                    </div>
+                  {% endif %}
+                </div>
+
+                <!-- BOTTOM ROW: Variant Options -->
+                <div class="bundle-options-row">
+                  {% if block.settings.product_1_handle != blank
+                    and product1
+                    and product1.featured_image != blank
+                    and product1.variants.size > 0
+                  %}
+                    <div class="bundle-option-col">
+                      <label>{{ product1.title }}</label>
+                      <!-- Only Size Dropdown for Product 1 -->
+                      <select name="items[0][id]" class="variant-select">
+                        {% for variant in product1.variants %}
+                          {% if variant.option2 %}
+                            <option value="{{ variant.id }}">Size: {{ variant.option2 }}</option>
+                          {% endif %}
+                        {% endfor %}
+                      </select>
+                      <input type="hidden" name="items[0][quantity]" value="1">
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.product_2_handle != blank
+                    and product2
+                    and product2.featured_image != blank
+                    and product2.variants.size > 0
+                  %}
+                    <div class="bundle-option-col">
+                      <label>{{ product2.title }}</label>
+                      <!-- Only Size Dropdown for Product 2 -->
+                      <select name="items[1][id]" class="variant-select">
+                        {% for variant in product2.variants %}
+                          {% if variant.option2 %}
+                            <option value="{{ variant.id }}">Size: {{ variant.option2 }}</option>
+                          {% endif %}
+                        {% endfor %}
+                      </select>
+                      <input type="hidden" name="items[1][quantity]" value="1">
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.product_3_handle != blank
+                    and product3
+                    and product3.featured_image != blank
+                    and product3.variants.size > 0
+                  %}
+                    <div class="bundle-option-col">
+                      <label>{{ product3.title }}</label>
+                      <!-- Only Size Dropdown for Product 3 -->
+                      <select name="items[2][id]" class="variant-select">
+                        {% for variant in product3.variants %}
+                          {% if variant.option2 %}
+                            <option value="{{ variant.id }}">Size: {{ variant.option2 }}</option>
+                          {% endif %}
+                        {% endfor %}
+                      </select>
+                      <input type="hidden" name="items[2][quantity]" value="1">
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+
+              <!-- Total Price -->
+              <div class="bundle-total-price">
+                {% assign total_price = 0 %}
+
+                {% if product1 %}
+                  {% assign total_price = total_price | plus: product1.price %}
+                {% endif %}
+                {% if product2 %}
+                  {% assign total_price = total_price | plus: product2.price %}
+                {% endif %}
+                {% if product3 %}
+                  {% assign total_price = total_price | plus: product3.price %}
+                {% endif %}
+
+                <!-- Original Price with Strike-through -->
+                <p class="original-price">
+                  <span class="price-original">{{ total_price | money }}</span>
+                </p>
+
+                <!-- Sale Price -->
+                <p class="sale-price">
+                  <span class="price-sale">$99.99</span>
+                </p>
+              </div>
+
+              <!-- Submit button aligned at bottom -->
+              <button type="submit" class="btn-add-bundle">
+                {{ block.settings.button_label }}
+              </button>
+            </form>
+          </div>
+          <!-- .single-bundle-block -->
+        {% endif %}
+      {% endfor %}
+    </div>
+    <!-- .bundle-blocks-wrap -->
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bundle with variants",
+  "max_blocks": 12,
+  "blocks": [
+    {
+      "type": "bundle_block",
+      "name": "Bundle",
+      "settings": [
+        {
+          "type": "text",
+          "id": "bundle_title",
+          "label": "Bundle Title",
+          "default": "My Bundle"
+        },
+        {
+          "type": "textarea",
+          "id": "bundle_description",
+          "label": "Bundle Description",
+          "default": "Pick your preferred size for each product!"
+        },
+        {
+          "type": "product",
+          "id": "product_1_handle",
+          "label": "Product #1"
+        },
+        {
+          "type": "product",
+          "id": "product_2_handle",
+          "label": "Product #2"
+        },
+        {
+          "type": "product",
+          "id": "product_3_handle",
+          "label": "Product #3"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Add Bundle to Cart"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title_top",
+      "label": "Top Title (Line 1)",
+      "default": "Men's Bundles"
+    },
+    {
+      "type": "text",
+      "id": "section_title_middle",
+      "label": "Middle Title (Line 2)",
+      "default": "Today Only!"
+    },
+    {
+      "type": "text",
+      "id": "section_subtitle",
+      "label": "Subtitle (Line 3)",
+      "default": "$99.99 Flash Sale"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bundle with variants"
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+  /* Section Containers */
+  .bundle-multi-block-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* subtle light background */
+    text-align: center;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  /* New Heading Styles */
+  .bundle-section-title-top {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+  }
+
+  .bundle-section-title-middle {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+  }
+
+  .bundle-section-subtitle {
+    font-size: 1.2rem;
+    color: #e53935;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Bundle Blocks Wrap */
+  .bundle-blocks-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  /* Single Bundle Block */
+  .single-bundle-block {
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .single-bundle-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Bundle Headings and Text */
+  .bundle-title {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .bundle-desc {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  /* Form Container */
+  .bundle-form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  /* Inner container to group images and variant options */
+  .bundle-form-inner {
+    flex-grow: 1;
+  }
+
+  /* Product Images Row */
+  .bundle-images-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .bundle-image-col {
+    flex: 1 1 auto;
+    position: relative;
+  }
+
+  /* Quick view container styles */
+  .quickview {
+    position: relative;
+  }
+
+  .quickview a {
+    display: block;
+    position: relative;
+  }
+
+  .quickview img {
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  /* Primary image is shown by default */
+  .quickview img.primary {
+    opacity: 1;
+  }
+
+  /* Secondary image is positioned absolutely and hidden by default */
+  .quickview img.secondary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  /* On hover, reveal secondary image and optionally scale it up */
+  .quickview:hover img.secondary {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  /* Optionally, fade out the primary image when hovering */
+  .quickview:hover img.primary {
+    opacity: 0;
+  }
+
+  /* Variant Options Row */
+  .bundle-options-row {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .bundle-option-col {
+    text-align: left;
+  }
+
+  .bundle-option-col label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+    color: #444;
+    font-size: 0.95rem;
+  }
+
+  /* Enhanced Option Selection Dropdown */
+  .variant-select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='14' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23666' stroke-width='2' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .variant-select:focus {
+    outline: none;
+    border-color: #b50808;
+    box-shadow: 0 0 5px rgba(181, 8, 8, 0.3);
+  }
+
+  /* Add to Cart Button */
+  .btn-add-bundle {
+    background-color: #b50808; /* new color */
+    color: #fff;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: auto; /* pushes the button to the bottom */
+  }
+
+  .btn-add-bundle:hover {
+    background-color: #930606; /* darker shade on hover */
+    transform: translateY(-2px);
+  }
+
+  .bundle-total-price {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .bundle-total-price .original-price {
+    font-size: 1rem;
+    color: #666;
+    text-decoration: line-through;
+    margin-bottom: 5px;
+  }
+
+  .bundle-total-price .sale-price {
+    font-size: 1.5rem;
+    color: #b50808; /* Adjust to your theme color */
+    font-weight: bold;
+  }
+{% endstyle %}

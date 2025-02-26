@@ -1,0 +1,82 @@
+{% assign kg_des_tab_title = 'Features,Product Details,Material,About the Brand' %}
+{% assign kg_des_tab_title_array = kg_des_tab_title | split: ',' %}
+
+{%- if product.description contains '---' -%}
+  <div class="kg-product-description-accordion-block">
+    <div class="kg-inner-accordian">
+      <div class="container">
+        <div class="kg-accordian">
+          <div class="kg-faq-container">
+            {% assign kg_des_array = product.description | split: '---' %}
+            {% for kg_des_tab in kg_des_array %}
+              {% if forloop.index == 1 %}
+                <div class="kg-product-description-introduction-content">
+                  {{ kg_des_tab }}
+                </div>
+              {% endif %}
+              {% unless forloop.index == 1 and forloop.index < 6 %}
+                {% assign kg_accordion_id_prefix = kg_des_tab_title_array[forloop.index0]
+                  | downcase
+                  | replace: ' ', '-'
+                %}
+                <div class="kg-up-slide-dwn">
+                  {% assign kg_des_tab_title_array_index = forloop.index0 | minus: 1 %}
+                  <div class="kg-accordian-item-heading kg-accordion {% if forloop.index == 2 %}kg-accordion-open{% endif %}">
+                    {{ kg_des_tab_title_array[kg_des_tab_title_array_index] }}:
+                  </div>
+                  <div class="kg-accordian-content" {% if forloop.index == 2 %}style="display: block;"{% endif %}>
+                    {{ kg_des_tab }}
+                  </div>
+                </div>
+              {% endunless %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% else %}
+  <div class="kg-product-description-introduction-content">
+    {{ product.description }}
+  </div>
+{% endif %}
+
+<script>
+document.addEventListener("click", function (event) {
+  // Check if the clicked element has the class "kg-accordion"
+  if (event.target.classList.contains("kg-accordion")) {
+    let closeAllFlag = false;
+
+    // Check if the clicked accordion is already open
+    if (event.target.classList.contains("kg-accordion-open")) {
+      closeAllFlag = true;
+    }
+
+    let allContent = document.querySelectorAll(".kg-up-slide-dwn .kg-accordian-content");
+
+    // Close all open accordions
+    allContent.forEach(content => {
+      if (content.style.display === "block") {
+        content.style.display = "none";
+        content.previousElementSibling.classList.remove("kg-accordion-open");
+      }
+    });
+
+    let nextContent = event.target.nextElementSibling;
+
+    // Toggle current accordion content if needed
+    if (nextContent && nextContent.classList.contains("kg-accordian-content")) {
+      if (closeAllFlag) {
+        // If the accordion is already open, close it
+        nextContent.style.display = "none";
+        event.target.classList.remove("kg-accordion-open");
+      } else {
+        // Otherwise, open the clicked accordion
+        nextContent.style.display = "block";
+        event.target.classList.add("kg-accordion-open");
+      }
+    }
+  }
+});
+
+</script>

@@ -1,0 +1,95 @@
+{%- assign kg_meta_found_flag = false -%}
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign pr_tags = product.tags %}
+
+{%- capture kg_meta_content -%}
+{%- if kg_show_sku -%}
+  {%- assign kg_meta_found_flag = true -%}
+  <div class="t4s-sku-wrapper{% if current_variant.sku == blank %} t4s-dn{% endif %}" data-product-sku>
+    {{ 'products.product.product_sku' | t }}
+    <span class="t4s-productMeta__value t4s-dib t4s-sku-value t4s-csecondary" data-product__sku-number>
+      {{- current_variant.sku -}}
+    </span>
+  </div>
+{%- endif -%}
+  
+{%- if kg_show_vendor and product.vendor != blank -%}
+  {% assign pr_vendor = product.vendor %}
+  {%- assign kg_meta_found_flag = true -%}
+  {%- liquid
+    assign pr_vendor_url = pr_vendor | url_for_vendor
+    if use_link_vendor
+      assign pr_vendor_handle = product.vendor | handle
+      assign collection_vendor = collections[pr_vendor_handle]
+      assign pr_vendor_url = collection_vendor.url | default: pr_vendor_url
+    endif
+  -%}
+  <div class="t4s-vendor-wrapper">
+    {{ 'products.product.product_vendor' | t }}
+    <span class="t4s-productMeta__value t4s-dib t4s-vendor-value t4s-csecondary"
+      ><a href="{{ pr_vendor_url }}">{{ pr_vendor }}</a></span
+    >
+  </div>
+{%- endif -%}
+  
+{%- if kg_show_options and product.has_only_default_variant == false -%}
+  {%- assign kg_meta_found_flag = true -%}
+  {%- for product_option in product.options_with_values -%}
+    <div class="t4s-option-wrapper">
+      {{ product_option.name | escape }}:
+      <span class="t4s-productMeta__value t4s-dib t4s-option-value t4s-csecondary">
+        {{- product_option.values | join: ', ' -}}
+      </span>
+    </div>
+  {%- endfor -%}
+{%- endif -%}
+
+{%- if kg_show_barcode -%}
+  {%- assign kg_meta_found_flag = true -%}
+  <div class="t4s-barcode-wrapper{% if current_variant.barcode == blank %} t4s-dn{% endif %}" data-product-barcode>
+    {{ 'products.product.product_barcode' | t }}
+    <span class="t4s-productMeta__value t4s-dib t4s-barcode-value t4s-csecondary" data-product__barcode-number>
+      {{- current_variant.barcode -}}
+    </span>
+  </div>
+{%- endif -%}
+
+{%- if product.collections.size > 0 and kg_show_category -%}
+  {%- assign kg_meta_found_flag = true -%}
+  <div class="t4s-collections-wrapper">
+    {{ 'products.product.product_category' | t }}
+    {% for collection in product.collections -%}
+      {{ collection.title | link_to: collection.url, class: 't4s-dib' }}
+    {% endfor -%}
+  </div>
+{%- endif -%}
+
+{%- if pr_tags.size > 0 and kg_show_tags and product.collections.size > 0 -%}
+  {%- liquid
+    assign kg_meta_found_flag = true
+    assign t4_pr_tags = pr_tags | where: 't4_'
+    if pr_tags.size == t4_pr_tags.size
+      assign show_tag_final = false
+    else
+      assign show_tag_final = true
+    endif
+  -%}
+
+  {%- if show_tag_final -%}
+    {%- assign tag_cat_url = collection.url | default: product.collections.first.url -%}
+    <div class="t4s-tags-wrapper">
+      {{ 'products.product.product_tag' | t }}
+      {% for tag in pr_tags -%}
+        {%- if tag contains 't4_' or tag contains 'badge_' %}{% continue %}{% endif -%}
+        <a class="t4s-dib" href="{{ tag_cat_url }}/{{ tag | handle }}">{{ tag | remove: 'type ' | remove: 'Type ' }}</a>
+      {% endfor -%}
+    </div>
+  {%- endif -%}
+{%- endif -%}
+{%- endcapture -%}
+
+{%- if kg_meta_found_flag -%}
+  <div class="t4s-product_meta t4s-d-flex t4s-flex-wrap t4s-gap-10 kg-product_meta-block-content-wrapper">
+    {{- kg_meta_content -}}
+  </div>
+{%- endif -%}
