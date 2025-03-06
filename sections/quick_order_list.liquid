@@ -13,7 +13,7 @@
       assign total_variant_in_cart = cart | line_items_for: product | sum: 'original_line_price' | money
     endif
 -%}
-<div class="t4s-container" data-replace-content>
+<div class="load_async t4s-container" data-replace-content>
   <div class="t4s-row">
     <div class="t4s-col-item t4s-col-12">
       <quick-order-list id="{{ section.id }}-{{ product.id }}" class="t4s-product" data-section="{{ section.id }}" data-product-id="{{ product.id }}" data-url="{{ product.url }}" aria-busy="false">

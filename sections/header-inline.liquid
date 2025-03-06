@@ -289,7 +289,6 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
   {
    "name": "Header inline",
    "tag": "header",
-   "max_blocks": 16,
    "class": "t4s-section t4s-section-header kg-header-inline-main-section",
    "settings": [
       {
@@ -1003,7 +1002,18 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
             ],
             "label": "Space vertical items", 
             "default": "30"
-          }
+          },
+          {
+            "type": "checkbox",
+            "id": "kg_part_of_collection",
+            "label": "Part from collection?",
+            "default": false
+          },
+          {
+            "type": "collection",
+            "id": "kg_linked_collection",
+            "label": "Collection"
+          },
         ]
        },
        {
@@ -1114,7 +1124,18 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
                 }
             ],
             "label": "Position child submenu"
-          }
+          },
+          {
+            "type": "checkbox",
+            "id": "kg_part_of_collection",
+            "label": "Part from collection?",
+            "default": false
+          },
+          {
+            "type": "collection",
+            "id": "kg_linked_collection",
+            "label": "Collection"
+          },
           ]
        },
        {
@@ -1175,7 +1196,18 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
             "type":"color",
             "id":"lb_cl",
             "label":"Label color"
-          }
+          },
+          {
+            "type": "checkbox",
+            "id": "kg_part_of_collection",
+            "label": "Part from collection?",
+            "default": false
+          },
+          {
+            "type": "collection",
+            "id": "kg_linked_collection",
+            "label": "Collection"
+          },
           ]
        }
    ],

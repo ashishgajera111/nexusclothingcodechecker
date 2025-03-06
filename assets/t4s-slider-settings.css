@@ -225,7 +225,7 @@
   transform: none;
 }
 .t4s-slider-btn-pos-ontop.t4s-flicky-slider.t4s-slider-btn-style-simple .flickityt4s-button.previous {
-  right: calc(var(--btn-height-slider) + 20px + var(--ts-gutter-x)/2  - 7px);
+  right: calc(var(--btn-height-slider) + 20px + var(--ts-gutter-x)/2 - 7px);
 }
 .t4s-slider-btn-pos-ontop.t4s-flicky-slider:not(:hover) .flickityt4s-button.previous,
 .t4s-slider-btn-pos-ontop.t4s-flicky-slider:not(:hover) .flickityt4s-button.next {

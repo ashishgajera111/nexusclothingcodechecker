@@ -1,7 +1,7 @@
 {% comment %}
     Renders a list of product's price (regular, sale, unit)
     Accompanies product forms and meant to be updated dynamically
-    Accepts:
+    Accepts: 
     - variant: {Object} Variant Liquid object (optional)
     - product: {Object} Product Liquid object (optional)
     - PR_no_pick: {Boolean} Product no pick (optional)
@@ -85,7 +85,7 @@ endif -%}
   {%- endif -%}
 {%- endcapture -%}
 
-<div class="t4s-product-price"{%- if variant_unit_price_measurement == nil and isRangePrices == false or pr_no_pick_prices -%} data-pr-price data-product-price data-saletype="{{ type_sale }}"{% else %} data-product-unit-price{% endif %} {{ style_inline }}>
+<div class="asyncLoad t4s-product-price"{%- if variant_unit_price_measurement == nil and isRangePrices == false or pr_no_pick_prices -%} data-pr-price data-product-price data-saletype="{{ type_sale }}"{% else %} data-product-unit-price{% endif %} {{ style_inline }}>
    
   {%- if isRangePrices -%}
 

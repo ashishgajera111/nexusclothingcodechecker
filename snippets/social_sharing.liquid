@@ -27,7 +27,7 @@
     assign socials_txt = "socials.follow_fb;socials.follow_tw;socials.follow_it;socials.follow_dr;socials.follow_ld;socials.follow_pr;socials.follow_tu;socials.follow_sp;socials.follow_yt;socials.follow_vm;socials.follow_bh;socials.follow_sc;socials.follow_tt;socials.follow_sptify;socials.follow_threads" | split: ';'  
   endif -%}
 
-<div class="t4s-socials t4s-socials-style-{{ style }} t4s-socials-size-{{ size }} t4s-setts-color-{{ use_color_set }} t4s-row t4s-gx-md-{{ space_h_item }} t4s-gy-md-{{ space_v_item }} t4s-gx-{{ space_h_item_mb }} t4s-gy-{{ space_v_item_mb }}">
+<div class="asyncLoad t4s-socials t4s-socials-style-{{ style }} t4s-socials-size-{{ size }} t4s-setts-color-{{ use_color_set }} t4s-row t4s-gx-md-{{ space_h_item }} t4s-gy-md-{{ space_v_item }} t4s-gx-{{ space_h_item_mb }} t4s-gy-{{ space_v_item_mb }}">
   {%- unless follow_social -%}  
     {%- if settings.share_facebook -%}
     <div class="t4s-col-item t4s-col-auto">

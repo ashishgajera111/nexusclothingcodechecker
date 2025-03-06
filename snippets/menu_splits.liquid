@@ -60,7 +60,7 @@
 
 			{%- else -%}
 				<li id="item_{{ blockID }}" class="t4s-type__simple t4s-menu-item" {{ block.shopify_attributes }}>
-					<a class="t4s-lh-1 t4s-d-flex t4s-align-items-center t4s-pr" href="{% if bk_stts.url contains '#homet4' %}{{ routes.root_url }}{% else %}{{ bk_stts.url }}{% endif %}" target="{{ bk_stts.open_link }}"{% if bk_stts.cus_cl %} style="color:{{ bk_stts.cl }}"{% endif %}>{%- render 'title_menu', bk_stts: bk_stts, showArrow: false -%}</a>
+					<a class="asyncLoad t4s-lh-1 t4s-d-flex t4s-align-items-center t4s-pr" href="{% if bk_stts.url contains '#homet4' %}{{ routes.root_url }}{% else %}{{ bk_stts.url }}{% endif %}" target="{{ bk_stts.open_link }}"{% if bk_stts.cus_cl %} style="color:{{ bk_stts.cl }}"{% endif %}>{%- render 'title_menu', bk_stts: bk_stts, showArrow: false -%}</a>
 				</li>
 
 		{%- endcase -%}

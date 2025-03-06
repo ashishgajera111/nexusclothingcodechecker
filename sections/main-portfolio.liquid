@@ -69,7 +69,7 @@
                         {%- for block in section.blocks -%}
                             {%- assign tag = block.settings.title -%}
                             {%- if current_tags contains tag -%}
-                                <li class="t4s-d-inline-flex"><a href="{{ blog_url }}" class="is--selected">{{ tag | remove: 'category_' | strip }}</a></li>
+                                <li class="load_async t4s-d-inline-flex"><a href="{{ blog_url }}" class="is--selected">{{ tag | remove: 'category_' | strip }}</a></li>
                             {%- elsif all_tags contains tag -%}
                                 <li class="t4s-d-inline-flex"><a href="{{ blog_url }}/tagged/{{ tag | handle }}">{{ tag | remove: 'category_' | strip }}</a></li>
                             {%- endif -%}

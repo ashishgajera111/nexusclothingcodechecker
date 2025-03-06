@@ -35,7 +35,7 @@
             {%- for category in collections -%}
                 {%- if category.products.size == 0 -%}{% continue %}{%- endif -%}
                 {%- assign check_cate = true -%}
-                <div class="t4s-col-auto t4s-col-item t4s-cat-item{% if collection.handle == category.handle %} t4s-current-cat{% endif %}"><a class="t4s-cat-link t4s-d-inline-block" href="{{ category.url }}">{{ category.title }}</a></div>
+                <div class="load_async t4s-col-auto t4s-col-item t4s-cat-item{% if collection.handle == category.handle %} t4s-current-cat{% endif %}"><a class="t4s-cat-link t4s-d-inline-block" href="{{ category.url }}">{{ category.title }}</a></div>
             {%- endfor -%}
         {%- else -%}
             {%- for category in collections reversed -%}

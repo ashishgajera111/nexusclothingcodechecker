@@ -24,7 +24,12 @@
                   <div class="kg-accordian-item-heading kg-accordion {% if forloop.index == 2 %}kg-accordion-open{% endif %}">
                     {{ kg_des_tab_title_array[kg_des_tab_title_array_index] }}:
                   </div>
-                  <div class="kg-accordian-content" {% if forloop.index == 2 %}style="display: block;"{% endif %}>
+                  <div
+                    class="kg-accordian-content"
+                    {% if forloop.index == 2 %}
+                      style="display: block;"
+                    {% endif %}
+                  >
                     {{ kg_des_tab }}
                   </div>
                 </div>
@@ -42,41 +47,55 @@
 {% endif %}
 
 <script>
-document.addEventListener("click", function (event) {
-  // Check if the clicked element has the class "kg-accordion"
-  if (event.target.classList.contains("kg-accordion")) {
-    let closeAllFlag = false;
+$(document).on("click", ".kg-accordion", function () {
+    let closeAllFlag = $(this).hasClass("kg-accordion-open");
 
-    // Check if the clicked accordion is already open
-    if (event.target.classList.contains("kg-accordion-open")) {
-      closeAllFlag = true;
-    }
-
-    let allContent = document.querySelectorAll(".kg-up-slide-dwn .kg-accordian-content");
-
-    // Close all open accordions
-    allContent.forEach(content => {
-      if (content.style.display === "block") {
-        content.style.display = "none";
-        content.previousElementSibling.classList.remove("kg-accordion-open");
-      }
+    $(".kg-up-slide-dwn").find(".kg-accordian-content").each(function () {
+        $(this).slideUp();
+        $(this).closest(".kg-up-slide-dwn").find('.kg-accordion').removeClass("kg-accordion-open");
     });
 
-    let nextContent = event.target.nextElementSibling;
-
-    // Toggle current accordion content if needed
-    if (nextContent && nextContent.classList.contains("kg-accordian-content")) {
-      if (closeAllFlag) {
-        // If the accordion is already open, close it
-        nextContent.style.display = "none";
-        event.target.classList.remove("kg-accordion-open");
-      } else {
-        // Otherwise, open the clicked accordion
-        nextContent.style.display = "block";
-        event.target.classList.add("kg-accordion-open");
-      }
+    if (!closeAllFlag) {
+        $(this).closest(".kg-up-slide-dwn").find('.kg-accordian-content').slideDown();
+        $(this).addClass("kg-accordion-open");
     }
-  }
 });
 
+
+  // document.addEventListener("click", function (event) {
+  //   // Check if the clicked element has the class "kg-accordion"
+  //   if (event.target.classList.contains("kg-accordion")) {
+  //     let closeAllFlag = false;
+
+  //     // Check if the clicked accordion is already open
+  //     if (event.target.classList.contains("kg-accordion-open")) {
+  //       closeAllFlag = true;
+  //     }
+
+  //     let allContent = document.querySelectorAll(".kg-up-slide-dwn .kg-accordian-content");
+
+  //     // Close all open accordions
+  //     allContent.forEach(content => {
+  //       if (content.style.display === "block") {
+  //         content.style.display = "none";
+  //         content.previousElementSibling.classList.remove("kg-accordion-open");
+  //       }
+  //     });
+
+  //     let nextContent = event.target.nextElementSibling;
+
+  //     // Toggle current accordion content if needed
+  //     if (nextContent && nextContent.classList.contains("kg-accordian-content")) {
+  //       if (closeAllFlag) {
+  //         // If the accordion is already open, close it
+  //         nextContent.style.display = "none";
+  //         event.target.classList.remove("kg-accordion-open");
+  //       } else {
+  //         // Otherwise, open the clicked accordion
+  //         nextContent.style.display = "block";
+  //         event.target.classList.add("kg-accordion-open");
+  //       }
+  //     }
+  //   }
+  // });
 </script>

@@ -36,7 +36,7 @@
 	<div class="t4s-pr t4s-oh t4s-cat-content" timeline hdt-reveal="slide-in">
 	    <div class="cat_grid_item__content t4s-pr t4s-oh t4s-coll-img">
 		   	{%- if collection_des == "11" -%}<span class="t4s-count">{{ collection.all_products_count | default: 0 }}</span>{%- endif -%}
-		    <a class="t4s_cat_item_link t4s-img-wrap t4s-d-block" href="{{ collection.url }}" target="{{ open_link }}">
+		    <a class="asyncLoad t4s_cat_item_link t4s-img-wrap t4s-d-block" href="{{ collection.url }}" target="{{ open_link }}">
                 {%- if image != blank -%}
                     <div class="t4s_ratio t4s-bg-11" style="--aspect-ratioapt: {{ image.aspect_ratio | default: 1.2 }}">
                         <img class="lazyloadt4s t4s-lz--fadeIn t4s-obj-eff" data-src="{{ image | image_url: width: 1 }}" data-widths="[400,600,700,800,900,1000,1200,1400,1600]" data-optimumx="2" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt | escape }}" loading="lazy">

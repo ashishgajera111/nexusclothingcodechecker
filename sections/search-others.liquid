@@ -56,7 +56,7 @@
    <div class="t4s-result-title">{{ 'search.general.results_others' | t }}</div>
    {%- for item in search.results limit: limit %}{% assign image = item.image -%}
       <div class="t4s-result__item t4s-d-flex">
-         <div class="t4s-result-image"><a class="t4s-d-block t4s-pr t4s-oh{% if image %} t4s_ratio t4s-bg-11{% endif %}" href="{{ item.url }}"{% if image %} style="background: url({{ image | image_url: width: 1 }});--aspect-ratioapt: {{ image.aspect_ratio | default: 1 }}"{% endif %}>
+         <div class="load_async t4s-result-image"><a class="t4s-d-block t4s-pr t4s-oh{% if image %} t4s_ratio t4s-bg-11{% endif %}" href="{{ item.url }}"{% if image %} style="background: url({{ image | image_url: width: 1 }});--aspect-ratioapt: {{ image.aspect_ratio | default: 1 }}"{% endif %}>
          {%- if image != blank -%}
             <img class="lazyloadt4s" data-src="{{ image | image_url: width: 1 }}" data-widths="[95,170]" data-optimumx="2" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt | escape }}" loading="lazy">
          {%- else -%}

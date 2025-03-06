@@ -23,7 +23,7 @@
     assign max_qty = max_qty | at_most: variant.quantity_rule.max
   endif
 -%}
-<tr class="t4s-variant-item" id="Variant-{{ variant.id }}" data-variant-id="{{ variant.id }}" data-cart-qty="{{ cart_qty }}">
+<tr class="asyncLoad t4s-variant-item" id="Variant-{{ variant.id }}" data-variant-id="{{ variant.id }}" data-cart-qty="{{ cart_qty }}">
   <td class="t4s-variant-title">
     <div class="t4s-variant-info">
       {%- if show_image -%}

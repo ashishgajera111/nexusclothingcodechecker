@@ -14,7 +14,7 @@
   [t4splitlz]
       {%- if section.blocks.size > 0 -%}
         <link rel="stylesheet" href="{{ 't4s-widget.css' | asset_url }}" media="all">
-        <div class="t4s-sidebar-inner t4s-current-scrollbar">
+        <div class="load_async t4s-sidebar-inner t4s-current-scrollbar">
           <div class="t4s-row t4s-row-cols-1">
               {%- for block in section.blocks -%}
                   {%- assign bk_stts = block.settings -%}

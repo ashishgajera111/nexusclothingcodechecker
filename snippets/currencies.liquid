@@ -19,7 +19,7 @@
 
     {%- if linklists.currency-the4.links.size > 0 -%}
       {%- assign ck_iso_code = '#' | append: cart_iso_code -%}{%- assign links_cur = linklists.currency-the4.links | where: "url", ck_iso_code -%}
-      <div data-currency-wrap class="t4s-top-bar__currencies t4s-d-inline-block">
+      <div data-currency-wrap class="asyncLoad t4s-top-bar__currencies t4s-d-inline-block">
         <button data-dropdown-open data-position="{{ data_position }}" data-id="dropdown_currencies{{ sid }}">
 
           <span data-flagst4s="{{ sz }}" class="t4s-d-inline-block {{ fl }}">

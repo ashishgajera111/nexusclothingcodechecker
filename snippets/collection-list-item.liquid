@@ -30,7 +30,7 @@
     endif
  -%} 
 <div class="t4s-collection-item t4s-cat-content t4s-col-item t4s-coll-style-{{ collection_des }} t4s-eff t4s-eff-{{ b_effect }} t4s-eff-img-{{ img_effect }} t4s-text-center t4s-pr t4s-oh" style="--title-cl-pri: {{ se_stts.title_cl }};--title-cl-pri-hover: {{ se_stts.title_cl_hover }};--title-cl-second: {{ title_cl_sec }};--title-cl-second-hover: {{ title_cl_hover_sec }};--subtitle-cl: {{ se_stts.subtitle_cl }};--subtitle-cl2: {{ subtitle_cl_sec }};--count-cl-pri: {{ se_stts.count_cl }};--count-cl-second: {{ count_cl_sec }};--border-cl: {{ se_stts.border_cl }};--item-rd: {{ se_stts.item_rd }}%;--item-pd: {{ se_stts.item_pd }}px;--space-bottom: {{ se_stts.space_bottom }}px;--space-bottom-tb: {{ se_stts.space_bottom_tb }}px;--space-bottom-mb: {{ se_stts.space_bottom_mb }}px;">
-  <div class="t4s-pr t4s-oh t4s-cat-content" timeline hdt-reveal="slide-in">
+  <div class="asyncLoad t4s-pr t4s-oh t4s-cat-content" timeline hdt-reveal="slide-in">
       <div class="cat_grid_item__content t4s-pr t4s-oh t4s-coll-img">
         {%- if collection_des == "11" -%}
           <span class="t4s-count">{{ collection.all_products_count | default: 0 }}</span> 

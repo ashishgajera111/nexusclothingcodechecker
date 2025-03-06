@@ -2,6 +2,11 @@ html {
     font-size: 100%;
 }
 
+.kg-header-inline-main-section .t4s-col-item nav.t4s-navigation .t4s-nav__ul>.t4s-menu-item.kg-active-header-nav-menu>a {
+  font-weight: 900 !important;
+}
+
+
 .kg-image-gallery-with-carousel-content-wrapper .kg-image-gallery-image-item-wrapper {
   height: 140px;
   background: #efefef !important;
@@ -194,6 +199,8 @@ html {
 .kg-header-inline-main-section .t4s-col-item nav.t4s-navigation .t4s-nav__ul>.t4s-menu-item>a {
   height: 50px;
   padding: 0 12px;
+  text-transform: uppercase;
+  font-weight: 300;
 }
 @media screen and (max-width:1024px) {
   .kg-header-mobile-menu-drawer .t4s-mb__menu li.kg-header-mobile-menu-item-track-order {
@@ -470,40 +477,6 @@ button[data-v-4fe262a5].opinew-navbar-button {
   }
 }
 
-
-/* PAGE FAQ */
-.kg-main-page-content-wrapper .shg-row {
-    display: flex;
-    flex-wrap: wrap;
-    min-height: inherit;
-    max-height: inherit;
-    justify-content: space-between;
-}
-
-.kg-main-page-content-wrapper .kg-backto-account-button-wrapper,
-.kg-main-page-content-wrapper .shg-align-center {
-    text-align: center;
-} 
-
-.kg-main-page-content-wrapper .kg-backto-account-button-wrapper .kg-backto-account-button-link,
-.kg-main-page-content-wrapper .shg-btn.shg-cse {
-    color: #fff;
-    font-size: 26px;
-    display: inline-block;
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-bottom: 10px !important;
-    padding-right: 20px;
-    border-radius: 2px;
-    background-color: #252525;
-    text-align: center;
-    text-decoration: none;
-    box-shadow: 10px 5px 5px #9ac26d;
-    letter-spacing: 0;
-}
-/* PAGE FAQ */
-
-
 /* CART PAGE */
 .kg-main-cart-page-content-wrapper .kg-cart-page-footer-content-wrapper .kg-color-text-red,
 #t4s-mini_cart .kg-color-text-red {
@@ -583,6 +556,43 @@ button[data-v-4fe262a5].opinew-navbar-button {
   }
 }
 /* CART PAGE */
+
+.t4s-drawer__right .t4s-cart__threshold {
+    padding: 10px 20px;
+}
+
+/* PAGE FAQ */
+.kg-main-page-content-wrapper .shg-row {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: inherit;
+    max-height: inherit;
+    justify-content: space-between;
+}
+
+.kg-main-page-content-wrapper .kg-backto-account-button-wrapper,
+.kg-main-page-content-wrapper .shg-align-center {
+    text-align: center;
+}
+
+.kg-main-page-content-wrapper .kg-backto-account-button-wrapper .kg-backto-account-button-link,
+.kg-main-page-content-wrapper .shg-btn.shg-cse {
+    color: #fff;
+    font-size: 26px;
+    display: inline-block;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px !important;
+    padding-right: 20px;
+    border-radius: 2px;
+    background-color: #252525;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 10px 5px 5px #9ac26d;
+    letter-spacing: 0;
+}
+
+/* PAGE FAQ */
 
 
 /* ABOUT US PAGE */

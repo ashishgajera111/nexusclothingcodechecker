@@ -1,5 +1,5 @@
 <!doctype html>
-{%- liquid
+{%- liquid 
   assign t_name     = request.page_type
   assign iso_code   = request.locale.iso_code
   assign use_rtl    = settings.use_rtl
@@ -26,12 +26,18 @@ t4sp-theme t4s-wrapper__{{ settings.general_layout }} rtl_{{ isRTL }} swatch_col
 {%- endcapture -%}
 <html class="{{ class_html }} no-js" lang="{{ iso_code }}"{% if isRTL %} dir="rtl"{% endif %}>
   <head>
+  {% include 'shop-sheriff-amp' %}
+	{% render 'pandectes-rules' %}
+	
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="theme-color" content="{{ settings.body_bg }}">
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/gulpfile.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css" as="style">
+    <link rel="preload" href="{{ 'pre_flickityt4s.min.css' | asset_url }}" as="style">
     
     {%- if settings.favicon != blank %}<link rel="shortcut icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}"><link id="t4s-favico" rel="apple-touch-icon-precomposed" type="image/png" sizes="152x152" href="{{ settings.favicon | image_url: width: 152, height: 152 }}">{% endif -%}
 
@@ -63,14 +69,17 @@ t4sp-theme t4s-wrapper__{{ settings.general_layout }} rtl_{{ isRTL }} swatch_col
     <link href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css" rel="stylesheet">
     <script src="{{ 'lazysizes.min.js' | asset_url }}" async="async"></script>
     <script src="{{ 'global.min.js' | asset_url }}" defer="defer"></script>
-    {{ content_for_header }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    {% comment %}{{ content_for_header }}{% endcomment %}{% render "CFH" %}
     {%- render 'head_assets', t_name: t_name, isRTL: isRTL -%}
     {{- 'kg-custom.css' | asset_url | stylesheet_tag: preload: true -}}
     <!-- If you only need Searchanise on specific pages (e.g. collection), keep it conditional -->
     {%- if template.name contains "collection" -%}
       <script src="//searchserverapi.com/widgets/shopify/init.js?a=8j0J5I4D4p" async></script>
     {%- endif -%}
-  </head>
+    {% render "scripts" %}
+  {% render 'opinew_head' %}
+</head>
 
   <body class="template-{{ request.page_type | handle }} {{ class_lazy }}"{% if body_img != blank %} data-bgset="{{ body_img | image_url: width: 1 }}" data-optimumx="2" data-sizes="auto"{% endif -%}>
     <a class="skip-to-content-link visually-hidden" href="#MainContent">{{ "accessibility.skip_to_text" | t }}</a>

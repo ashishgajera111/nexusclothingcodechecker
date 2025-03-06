@@ -9,12 +9,11 @@ if (!customElements.get('recipient-form')) {
     subscribers[eventName] = [...subscribers[eventName], callback];
 
     return function unsubscribe() {
-      subscribers[eventName] = subscribers[eventName].filter((cb) => {
-        return cb !== callback;
-      });
+      subscribers[eventName] = subscribers[eventName].filter((cb) => cb !== callback);
     };
   }
-    customElements.define(
+
+  customElements.define(
     'recipient-form',
     class RecipientForm extends HTMLElement {
       constructor() {
@@ -31,8 +30,10 @@ if (!customElements.get('recipient-form')) {
         this.offsetProperty = this.querySelector(`#Recipient-timezone-offset-${this.dataset.sectionId}`);
         if (this.offsetProperty) this.offsetProperty.value = new Date().getTimezoneOffset().toString();
 
+        this.errorMessageWrapper = this.querySelector('.error-message-wrapper');
         this.errorMessageList = this.errorMessageWrapper?.querySelector('ul');
-        this.defaultErrorHeader = this.errorMessage?.innerText;
+        this.defaultErrorHeader = this.errorMessageWrapper?.querySelector('.error-header')?.innerText || "Error";
+
         this.currentProductVariantId = this.dataset.productVariantId;
         this.addEventListener('change', this.onChange.bind(this));
         this.onChange();
@@ -41,13 +42,6 @@ if (!customElements.get('recipient-form')) {
       cartUpdateUnsubscriber = undefined;
       variantChangeUnsubscriber = undefined;
       cartErrorUnsubscriber = undefined;
-
-      // UNCOMMENT IF IT IS NEEDED IN FUTURE
-      // connectedCallback() {
-      // }
-
-      // disconnectedCallback() {
-      // }
 
       onChange() {
         if (this.checkboxInput.checked) {
@@ -80,10 +74,32 @@ if (!customElements.get('recipient-form')) {
         this.disableableFields().forEach((field) => (field.disabled = true));
       }
 
+      /** ✅ FIXED: Displays an error message **/
       displayErrorMessage(title, body) {
+        if (!this.errorMessageWrapper) {
+          console.error("Error message wrapper not found!");
+          return;
+        }
+
+        this.errorMessageWrapper.style.display = 'block'; // Make sure it's visible
+        this.errorMessageWrapper.innerHTML = `
+          <div style="color: red; padding: 10px; border: 1px solid red; background: #ffe6e6;">
+            <strong>${title}</strong>: ${body}
+          </div>
+        `;
       }
 
+      /** ✅ FIXED: Creates an error list item and appends it to target **/
       createErrorListItem(target, message) {
+        if (!target) {
+          console.error("Target element for error list not found!");
+          return;
+        }
+
+        const errorItem = document.createElement('li');
+        errorItem.style.color = 'red';
+        errorItem.innerText = message;
+        target.appendChild(errorItem);
       }
 
       resetRecipientForm() {

@@ -7,7 +7,7 @@
 		<div class="t4s-col-12 t4s-col-item">
 			<div class="t4s-search-fullwidth__image">
 				{%- if image != blank -%}
-					<a class="t4s-d-block t4s-pr t4s-oh t4s_ratio t4s-bg-11" href="{{ pr_url }}" style="background: url({{ image | image_url: width: 1 }});{{ imgatt }}--aspect-ratioapt: {{ image.aspect_ratio | default: 1 }}">
+					<a class="asyncLoad t4s-d-block t4s-pr t4s-oh t4s_ratio t4s-bg-11" href="{{ pr_url }}" style="background: url({{ image | image_url: width: 1 }});{{ imgatt }}--aspect-ratioapt: {{ image.aspect_ratio | default: 1 }}">
 						<img class="lazyloadt4s" data-src="{{ image | image_url: width: 1 }}" data-widths="[400,600,700,800,900,1000,1200,1400,1600]" data-optimumx="2" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt | escape }}" loading="lazy">
 					</a>
 				{%- endif -%}
