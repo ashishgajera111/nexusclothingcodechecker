@@ -61,7 +61,6 @@ ul#t4s-nav-categories{padding: 15px 0;box-shadow: 0 5px 15px #00000026;}
     height: 1px;
     z-index: 22;
     display: block;
-    width: 100%;
     background-color: rgba(var(--text-color-rgb), 0.2);
     left: 15px;
     right: 15px;
@@ -82,15 +81,17 @@ ul#t4s-nav-categories{padding: 15px 0;box-shadow: 0 5px 15px #00000026;}
     font-size: 22px;
     margin-right: 4px;
 }
-#t4s-nav-categories .t4s_lb_nav {
-    position: relative;
-    right: auto;
-    margin-top: 0;
-    margin-left: 3px;
-    display: inline-block;
-    line-height: 14px;
-    min-width: 30px;
-}
+/*
+* #t4s-nav-categories .t4s_lb_nav {
+*    position: relative;
+*    right: auto;
+*    margin-top: 0;
+*    margin-left: 3px;
+*    display: inline-block;
+*    line-height: 14px;
+*    min-width: 30px;
+* }
+*/
 #t4s-nav-categories li .t4s-sub-menu{
   padding: 15px 0;
 }

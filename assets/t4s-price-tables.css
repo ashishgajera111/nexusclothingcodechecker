@@ -137,7 +137,6 @@
 .t4s-price-tables-item.t4s-price-tables-style-3 .t4s-price-tables-footer {
 	border-color: rgba(255,255,255,.15)
 }
-.t4s-price-tables-item.t4s-price-tables-style-4 .t4s-price-tables-inner,
 .t4s-price-tables-item.t4s-price-tables-style-4 .t4s-price-tables-inner {
 	background-color: var(--item-cl);
 }
@@ -186,7 +185,7 @@
 }
 
 .t4s-price-tables-item.t4s-price-tables-style-5 .t4s-price-tables-inner {
-	border: solid 1px #ececec;;
+	border: solid 1px #ececec;
 }
 .t4s-price-tables-item.t4s-price-tables-style-5.t4s-item-highlights-true .t4s-price-tables-inner {
 	border: solid 2px var(--item-cl);

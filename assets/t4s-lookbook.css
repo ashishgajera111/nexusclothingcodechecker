@@ -52,13 +52,15 @@
     z-index:2;
     cursor: pointer;
 }
-.t4s-lookbook-pin .t4s-pin-tt{
-  color: var(--cl-pin);
-  background-color: var(--bg-pin);
-  display: block;
-  width: 100%;
-  height: 100%;
-}
+/* 
+* .t4s-lookbook-pin .t4s-pin-tt {
+*     color: var(--cl-pin);
+*     background-color: var(--bg-pin);
+*     display: block;
+*     width: 100%;
+*     height: 100%;
+* }
+*/
 .t4s-pin-size__small {
     width: 24px;
     height: 24px;
@@ -103,6 +105,10 @@
     pointer-events: none;
 }
 .t4s-lookbook-pin .t4s-pin-tt {
+    color: var(--cl-pin);
+    background-color: var(--bg-pin);
+    width: 100%;
+    height: 100%;
     cursor: pointer;
     position: absolute;
     top: 0;

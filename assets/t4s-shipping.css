@@ -5,12 +5,14 @@
 	color: var(--icon-cl);
 	border-color: var(--icon-cl);
 }
-.t4s-shipping-list.t4s-shipping-icon-circle .t4s-shipping .t4s-shipping-icon {
-	border-radius: 100%;
-	overflow: hidden;
-	position: relative;
-	border: 1px solid;
-}
+/* 
+* .t4s-shipping-list.t4s-shipping-icon-circle .t4s-shipping .t4s-shipping-icon {
+* 	border-radius: 100%;
+* 	overflow: hidden;
+* 	position: relative;
+* 	border: 1px solid;
+* } 
+*/
 .t4s-shipping-list.t4s-shipping-icon-circle .t4s-shipping .t4s-shipping-icon > * {
 	position: relative;
 	z-index: 2;
@@ -60,6 +62,10 @@
     height: 95px;
 }
 .t4s-shipping-list.t4s-shipping-icon-circle .t4s-shipping .t4s-shipping-icon {
+  	border-radius: 100%;
+	overflow: hidden;
+	position: relative;
+	border: 1px solid;
 	display: flex;
 	justify-content: center;
 	align-items: center;

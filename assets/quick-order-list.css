@@ -86,13 +86,9 @@
         padding: 10px;
         font-weight: 600;
         color: var(--product-primary-price-color);
-    }
-
-    .t4s-qol-head-item {
         flex: 25%;
         border: 0;
     }
-
 
     .t4s-qol-head-item:nth-child(3),
     .t4s-qol-head-item:last-child,
@@ -274,10 +270,6 @@
             width: 40%;
         }
 
-        .t4s-quick-order-list__total {
-            margin-top: 1rem;
-        }
-
         .t4s-variant-quantity,
         .t4s-variant-price,
         .t4s-variant-subtotal {
@@ -410,6 +402,7 @@
             bottom: 5.5rem;
             display: flex;
             flex-direction: row;
+            margin-top: 1rem;
         }
 
         .t4s-quick-order-list__total-actions-item {

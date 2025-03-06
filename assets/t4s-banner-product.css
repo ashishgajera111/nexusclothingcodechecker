@@ -58,12 +58,15 @@
     background-image: none!important; 
 }
 .t4s-banner--product:not(.is--loading)>.t4s-loading__spinner {
-    transform: scale(.4);
+    transform: translate(-50%, -50%) scale(0.4);
     opacity: 0;
     visibility: hidden;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    /*
+    * transform: scale(.4);
+    * transform: translate(-50%, -50%);
+    */
 }
 .t4s-img-banner .t4s--product .t4s-product-img img {
     transform: scale(1);

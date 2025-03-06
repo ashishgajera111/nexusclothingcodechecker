@@ -34,10 +34,13 @@
     margin: 0 5px;
     font-size: var(--fs-price-del);
     color: var(--secondary-price-color);
+    color: var(--price-sale-color, var(--secondary-price-color));
 }
-.t4s-featured-collection2 .t4s-product-price del{
-    color: var(--price-sale-color);
-}
+/*
+* .t4s-featured-collection2 .t4s-product-price del{
+*     color: var(--price-sale-color);
+* }
+*/
 .t4s-featured-collection2 .t4s-product-price .t4s-price-from{color: var(--secondary-price-color);}
 .t4s-featured-collection2 .t4s-product-des{
     font-size: var(--fs-des);

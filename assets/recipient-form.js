@@ -1,17 +1,19 @@
 if (!customElements.get('recipient-form')) {
-  let subscribers = {};
 
-  function subscribe(eventName, callback) {
-    if (subscribers[eventName] === undefined) {
-      subscribers[eventName] = [];
-    }
-
-    subscribers[eventName] = [...subscribers[eventName], callback];
-
-    return function unsubscribe() {
-      subscribers[eventName] = subscribers[eventName].filter((cb) => cb !== callback);
-    };
-  }
+  /*
+  * let subscribers = {};
+  * function subscribe(eventName, callback) {
+  * 	if (subscribers[eventName] === undefined) {
+  * 		subscribers[eventName] = [];
+  * 	}
+  * 
+  * 	subscribers[eventName] = [...subscribers[eventName], callback];
+  * 
+  * 	return function unsubscribe() {
+  * 		subscribers[eventName] = subscribers[eventName].filter((cb) => cb !== callback);
+  * 	};
+  * }
+  */
 
   customElements.define(
     'recipient-form',

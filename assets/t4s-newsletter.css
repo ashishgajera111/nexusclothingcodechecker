@@ -60,9 +60,8 @@
 .t4s-newsletter-parent input[type="text"], input[type="email"],
 .t4s-newsletter-parent textarea,.t4s-newsletter-parent input[type="password"],
 .t4s-newsletter-parent input[type="tel"],
-.t4s-newsletter-parent input[type="search"],
-.t4s-newsletter-parent input[type="text"], input[type="email"]:focus,
-.t4s-newsletter-parent textarea,.t4s-newsletter-parent input[type="password"]:focus,
+.t4s-newsletter-parent input[type="search"], input[type="email"]:focus,
+.t4s-newsletter-parent input[type="password"]:focus,
 .t4s-newsletter-parent input[type="tel"]:focus,
 .t4s-newsletter-parent input[type="search"]:focus {
     appearance: none;
@@ -95,8 +94,11 @@
 .t4s-newsletter-parent {
     width: 100%;
     max-width: var(--form-width);
-    /* margin-left: auto;
-    margin-right: auto; */
+    /* 
+    * margin-left: auto;
+    * margin-right: auto;
+    */
+    position: relative;
 }
 .t4s-content-position .t4s-newsletter-parent {
     width: var(--form-width);
@@ -120,9 +122,11 @@
 .t4s-newsletter__inner input {
     border-radius: 46px;
 }
-/*.t4s-newsletter__inner .is--col-email {
-    flex: 1 1 auto;
-}*/
+/*
+* .t4s-newsletter__inner .is--col-email {
+*     flex: 1 1 auto;
+* }
+*/
 .t4s-newsletter__inner .is--col-btn {
     min-width: 111px;
 }
@@ -131,12 +135,10 @@
     line-height: 24px;
     transition: border-color .5s;
     box-shadow: none;
-    border-radius: 0;
     appearance: none;
     font-size: 13px;
     outline: 0;
     color: var(--input-cl);
-    border-radius: 0;
     max-width: 100%;
     background-color: var(--input-bg-cl);
     padding: 8px 10px;
@@ -270,7 +272,7 @@
 	padding: 0;
     border: 0;
     border-radius: 0;
-    border-bottom: 1px solid var(--border-cl);;
+    border-bottom: 1px solid var(--border-cl);
 }
 .t4s_newsletter_se.t4s-newsl-des-6 .t4s-newsletter__inner input.t4s-newsletter__email {
 	border-radius: 0;
@@ -356,9 +358,11 @@
     line-height: 22px;
     border-right: 0;
 }
-.t4s-newsletter-parent {
-    position: relative;
-}
+/* 
+* .t4s-newsletter-parent {
+*     position: relative;
+* } 
+*/
 .t4s-newsletter-parent > div,
 .t4s-newsletter-parent .t4s-newsletter__success,
 .t4s-newsletter-parent .t4s-newsletter__error {
@@ -379,20 +383,22 @@
     border-color: var(--t4s-success-color);
     color: var(--t4s-success-color);
 }
-/*.t4s-newsletter-parent > div::before,
-.t4s-newsletter-parent .t4s-newsletter__success::before {
-    border-bottom: solid 1px var(--t4s-success-color);
-    border-right: solid 1px var(--t4s-success-color);
-    content: "";
-    position: absolute;
-    z-index: 1;
-    top: calc(100% - 4px);
-    left: 25px;
-    background-color: var(--t4s-light-color);
-    transform: rotate(45deg);
-    width: 10px;
-    height: 10px;
-}*/
+/*
+* .t4s-newsletter-parent > div::before,
+* .t4s-newsletter-parent .t4s-newsletter__success::before {
+*     border-bottom: solid 1px var(--t4s-success-color);
+*     border-right: solid 1px var(--t4s-success-color);
+*     content: "";
+*     position: absolute;
+*     z-index: 1;
+*     top: calc(100% - 4px);
+*     left: 25px;
+*     background-color: var(--t4s-light-color);
+*     transform: rotate(45deg);
+*     width: 10px;
+*     height: 10px;
+* }
+*/
 .t4s-newsletter-parent > div svg,
 .t4s-newsletter-parent .t4s-newsletter__success svg {
     margin-inline-end: 5px;
@@ -524,6 +530,7 @@
     -webkit-animation-delay: 1s;
     -webkit-animation-name: autofill;
     -webkit-animation-fill-mode: both;
+    border-color: var(--t4s-dark-color);
 }
 .t4s-newsletter__inner  input:-webkit-autofill,
 .t4s-newsletter__inner input:-webkit-autofill:focus, 
@@ -531,9 +538,11 @@
     background-color: transparent !important;
     transition: background-color 5000s ease-in-out 0s;
 } 
-.t4s-newsletter__inner input:-webkit-autofill {
-    border-color: var(--t4s-dark-color);
-}
+/* 
+* .t4s-newsletter__inner input:-webkit-autofill {
+*     border-color: var(--t4s-dark-color);
+* } 
+*/
 .t4s-agree__checkbox {
     margin: 10px 0 0;
 }
@@ -552,7 +561,9 @@
     min-width: 16px;
     border: 1px solid #d4d6d8;
     background: var(--t4s-light-color);
-    box-shadow: 0 1px rgb(212 214 216 / 40%);
+    /* 
+    * box-shadow: 0 1px rgb(212 214 216 / 40%); 
+    */
     border-radius: 2px;
     appearance: none;
     position: relative;

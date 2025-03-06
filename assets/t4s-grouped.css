@@ -71,9 +71,6 @@
     font-weight: 500;
     margin: 0 5px 10px 0;
 }
-.t4s-grouped-product-list td {
-    text-align: center;
-}
 
 /* Custom CSS */
 @media (min-width: 1025px) {

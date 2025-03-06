@@ -168,7 +168,9 @@
     content: "";
     height: 8px;
     background: var(--accent-color);
-    opacity: .7;
+    /* 
+    * opacity: .7; 
+    */
     position: absolute;
     bottom: 9px;
     opacity: .3;

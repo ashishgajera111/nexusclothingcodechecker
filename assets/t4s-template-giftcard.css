@@ -182,8 +182,8 @@ h2,
   align-items: center;
   height: 100%;
   background-color: rgb(var(--color-base-background-1));
-  margin-bottom: 0.8rem;
   margin: 0 auto;
+  margin-bottom: 0.8rem;
 }
 
 @media only screen and (min-width: 750px) {

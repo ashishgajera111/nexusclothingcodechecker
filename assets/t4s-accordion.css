@@ -19,7 +19,9 @@
 	background-color: var(--bg-title-active-cl);
 }
 .t4s-type-accordion .t4s-tab-content {
-	background-color: var(--t4s-light-color);	
+    /*
+	* background-color: var(--t4s-light-color);	
+    */
 	color: var(--content-cl);
 	background-color: var(--bg-content-cl);
 	padding: 20px;
@@ -68,7 +70,9 @@
     left: 50%;
     -webkit-transform: translate(-50%,-50%) rotate(-90deg);
     transform: translate(-50%,-50%) rotate(-90deg);
-    background-color: currentColor;
+    /*
+    * background-color: currentColor;
+    */
     transition: transform .35s ease-in-out,opacity .35s ease-in-out,-webkit-transform .35s ease-in-out;
     background-color: var(--t4s-light-color);
 }

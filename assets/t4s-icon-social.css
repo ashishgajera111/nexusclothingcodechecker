@@ -22,7 +22,6 @@
 	margin-right: 0;
 }
 .t4s-socials a {
-	display: inline-block;
 	vertical-align: top;
     transition: all 0.5s ease;
     display: flex;
@@ -45,11 +44,15 @@
 	display: inline-block;
 	vertical-align: middle;
 	border: none;
-}
-.t4s-socials a svg {
-	height: 18px;
+  	height: 18px;
 	width: 18px;
 }
+/* 
+* .t4s-socials a svg {
+* 	height: 18px;
+* 	width: 18px;
+* }
+*/
 .t4s-socials.t4s-socials-style-1 a {
 	width: auto;
 	height: auto;
@@ -191,8 +194,8 @@
 	}
 	.t4s-socials-style-2.t4s-setts-color-true a:hover {
 		color: var(--cl) !important; 
-		background-color: var(--bg-cl) !important; 
 		background: var(--bg-cl) !important; 
+		background-color: var(--bg-cl) !important; 
 	}
 	.t4s-socials.t4s-socials-style-2 a.facebook:hover {background-color: var(--facebook-cl);}
 	.t4s-socials.t4s-socials-style-2 a.twitter:hover {background-color: var(--twitter-cl);}
@@ -235,8 +238,8 @@
 	}
 
 	.t4s-socials-style-4.t4s-setts-color-true a:hover {
-		background-color: var(--bg-cl) !important;
 		background: var(--bg-cl) !important;
+		background-color: var(--bg-cl) !important;
 		border-color: var(--cl) !important;
 		color: var(--cl) !important;
 	}

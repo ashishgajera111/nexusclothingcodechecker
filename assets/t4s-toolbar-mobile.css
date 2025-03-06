@@ -30,9 +30,15 @@
     position: relative;
     padding-bottom: 15px;
 }
-.t4s-toolbar-icon{position: relative;}
-.t4s-toolbar-icon svg{width: 20px;height: 20px;}
-.t4s-toolbar{
+/* 
+* .t4s-toolbar-icon {
+*  position: relative;
+* } 
+*/
+.t4s-toolbar-icon svg {
+  width: 20px;height: 20px;
+}
+.t4s-toolbar {
     background-color: var(--bg-color);
     z-index: 190;
     overflow-x: auto;
@@ -41,14 +47,20 @@
     padding: 5px;
     height: 55px;
     box-shadow: 0 0 9px rgb(0 0 0 / 12%);
-    transform: translate3d(0,104%,0);
-    -webkit-transform: translate3d(0,104%,0);
-    transition: transform .25s;
-}
-.t4s-toolbar {
+    /* 
+    * transform: translate3d(0,104%,0);
+    * -webkit-transform: translate3d(0,104%,0); 
+    */
     transform: none;
     -webkit-transform: none;
+    transition: transform .25s;
 }
+/* 
+* .t4s-toolbar {
+*     transform: none;
+*    -webkit-transform: none;
+* } 
+*/
 .t4s-toolbar .t4s-toolbar-item {
     -ms-flex: 1 0 20%;
     flex: 1 0 20%;
@@ -65,7 +77,10 @@
     font-weight: 400;
     line-height: 1;
 }
-.t4s-toolbar-icon{color: var(--icon-color);}
+.t4s-toolbar-icon {
+  color: var(--icon-color);
+  position: relative;
+}
 .t4s-toolbar-label {
     position: absolute;
     right: 10px;

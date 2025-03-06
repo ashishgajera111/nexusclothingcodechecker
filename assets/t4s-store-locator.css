@@ -25,10 +25,12 @@
    color: var(--secondary-color);
    font-weight: 500;
  }
-/*  .t4s-store-locator__listings .t4s-store-locator__item.is--active .t4s-store-locator__title,
- .t4s-store-locator__listings .t4s-store-locator__item .t4s-store-locator__title:hover {
-   color: var(--accent-color);
- } */
+/*  
+* .t4s-store-locator__listings .t4s-store-locator__item.is--active .t4s-store-locator__title,
+* .t4s-store-locator__listings .t4s-store-locator__item .t4s-store-locator__title:hover {
+*    color: var(--accent-color);
+* } 
+*/
  .t4s-store-locator__listings .t4s-store-locator__item:hover,
  .t4s-store-locator__listings .t4s-store-locator__item.is--active {
     background-color: rgba(var(--text-color-rgb),.05);
@@ -70,9 +72,12 @@ svg.t4s-icon--store-locator {
   height: 56px;
   width: 56px;
 }
-/* .has--custom-img-marker svg.t4s-icon--store-locator {
-  display: none !important
-} */
+
+/* 
+* .has--custom-img-marker svg.t4s-icon--store-locator {
+*   display: none !important
+* }
+*/
 
  /* Marker tweaks */
  .t4s-main-store-locator .mapboxgl-popup {

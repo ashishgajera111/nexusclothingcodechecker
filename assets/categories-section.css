@@ -3,6 +3,7 @@
     border-radius: 50%;
     object-fit: cover;
     width: var(--item-size-mobile);
+    max-width: 100%;
     aspect-ratio: 1/1;
 }
 
@@ -21,11 +22,6 @@
 
 .t4s-view-all-container {
     width: calc(100% / var(--item-width-mobile)) !important;
-}
-
-.t4s-collection-item-image {
-    width: var(--item-size-mobile);
-    max-width: 100%;
 }
 
 /* --- TABLET --- */

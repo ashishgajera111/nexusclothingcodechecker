@@ -428,8 +428,7 @@
 .rtl_true .t4s-frm-search__content .t4s-widget__pr-price ins,
 .rtl_true .t4s-top-bar__currencies button svg,
 .rtl_true .t4s-top-bar__languages button svg,
-.rtl_true .t4s-widget__pr-price ins, 
-.rtl_true .t4s-pr-group.t4s-pr-group .t4s-widget__pr-price ins {
+.rtl_true .t4s-widget__pr-price ins {
     margin-left: 0;
     margin-right: 5px;
 }
@@ -689,7 +688,6 @@
 @media (max-width: 1024px) {
     .rtl_true .t4s-product .t4s-product-badge,
     .rtl_true .t4s-pr-style3 .t4s-product-badge,
-    .rtl_true .t4s-pr-style3 .t4s-product-badge,
     .rtl_true .t4s-pr-style5 .t4s-product-badge,
     .rtl_true .t4s-pr-style6 .t4s-product-badge,
     .rtl_true .t4s-pr-style1 .t4s-product-btns2,
@@ -746,7 +744,6 @@
     .rtl_true .t4s-pr-style3 .t4s-product-badge,
     .rtl_true .t4s-pr-style5 .t4s-product-badge,
     .rtl_true .t4s-pr-style6 .t4s-product-badge,
-    .rtl_true .t4s-pr-style3 .t4s-product-badge,
     .rtl_true .t4s-pr-style1 .t4s-product-btns2,
     .rtl_true .t4s-pr-style7.t4s-product .t4s-product-badge, 
     .rtl_true .t4s-pr-style1:not(.t4s-colors-selected):hover .t4s-product-btns2,
@@ -873,7 +870,7 @@
     }
     .rtl_true .t4s-section-header__bot .t4s-h-cat >h5 svg{
         margin-right:0px;
-        margin-left: 5px;;
+        margin-left: 5px;
     }
     .rtl_true .t4s-h-cat__html .ml__15 {
         margin-left: 0px;

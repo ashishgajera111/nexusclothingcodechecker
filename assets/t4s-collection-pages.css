@@ -420,7 +420,6 @@ input.t4s-search-form__input {
     appearance: none;
     margin: 0;
     padding: 0;
-    color: var(--button-color);
     background: var(--button-background);
     border: none;
     line-height: inherit;
@@ -432,7 +431,7 @@ input.t4s-search-form__input {
     width: 50px;
     border-radius: 0 2px 2px 0;
     transition: background-color .1s ease-in-out;
-    color: var(--t4s-light-color);
+    color: var(--t4s-light-color, var(--button-color));
     font-size: 22px
 }
 
@@ -440,37 +439,40 @@ input.t4s-search-form__input {
     display: none
 }
 
-/*.predictive-search-wrapper {
-    background-color: var(--t4s-light-color);
-    box-shadow: 0 0 3px rgba(0, 0, 0, .15)
-}
+/*
+* .predictive-search-wrapper {
+*     background-color: var(--t4s-light-color);
+*     box-shadow: 0 0 3px rgba(0, 0, 0, .15)
+* }
+* 
+* .predictive-search-wrapper .row.mb__10.pb__10 {
+*     padding: 0;
+*     margin-bottom: 0
+* }
+* 
+* .predictive-search-wrapper .no-gutters>[class*=col-] {
+*     border-bottom: 1px solid;
+*     border-right: 1px solid;
+*     padding: 15px;
+*     border-color: rgba(129, 129, 129, .2);
+*     transition: background-color .25s
+* }
+* 
+* .predictive-search-wrapper .no-gutters>.search_sg_hd {
+*     background-color: #f9f9f9
+* }
+* 
+* .sug_last_col .col_last_true {
+*     -ms-flex: 0 0 100%;
+*     flex: 0 0 100%;
+*     max-width: 100%
+* }
+* 
+* .predictive-search-wrapper .no-gutters>[class*=col-]:hover {
+*     background-color: #f9f9f9
+* }
+*/
 
-.predictive-search-wrapper .row.mb__10.pb__10 {
-    padding: 0;
-    margin-bottom: 0
-}
-
-.predictive-search-wrapper .no-gutters>[class*=col-] {
-    border-bottom: 1px solid;
-    border-right: 1px solid;
-    padding: 15px;
-    border-color: rgba(129, 129, 129, .2);
-    transition: background-color .25s
-}
-
-.predictive-search-wrapper .no-gutters>.search_sg_hd {
-    background-color: #f9f9f9
-}
-
-.sug_last_col .col_last_true {
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    max-width: 100%
-}
-
-.predictive-search-wrapper .no-gutters>[class*=col-]:hover {
-    background-color: #f9f9f9
-}*/
 @media (min-width: 768px) {
     .t4s-coll-empty  {
         margin: 200px 0;
@@ -488,30 +490,32 @@ input.t4s-search-form__input {
 
 
 /*Widget*/
-/* .widget .widget-title {
-    position: relative;
-    padding-bottom: 20px;
-    margin-top: 0;
-    font-size: 18px;
-    font-weight: 500;
-}
-.widget .widget-title::after {
-    content: "";
-    width: 60px;
-    height: 2px;
-    background: var(--secondary-color);
-    left: 0;
-    bottom: 15px;
-    position: absolute;
-}
-.widget ul {
-    list-style: none;
-}
-.widget ul li {
-    line-height: 25px;
-    list-style: none;
-    margin-bottom: 5px;
-} */
+/*
+* .widget .widget-title {
+*     position: relative;
+*     padding-bottom: 20px;
+*     margin-top: 0;
+*     font-size: 18px;
+*     font-weight: 500;
+* }
+* .widget .widget-title::after {
+*     content: "";
+*     width: 60px;
+*     height: 2px;
+*     background: var(--secondary-color);
+*     left: 0;
+*     bottom: 15px;
+*     position: absolute;
+* }
+* .widget ul {
+*     list-style: none;
+* }
+* .widget ul li {
+*     line-height: 25px;
+*     list-style: none;
+*     margin-bottom: 5px;
+* } 
+*/
 
 @media (-moz-touch-enabled: 0), (hover: hover) and (min-width: 1025px){
     .t4s-active-filters a:hover::before,

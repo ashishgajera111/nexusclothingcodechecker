@@ -55,16 +55,24 @@
    z-index: 2;
    background-color: rgba(255, 255, 255, 0.15);
    pointer-events: none;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   opacity: 0;
+   visibility: hidden;
 }
-.t4s-eff-plus-zoom-overlay::before, 
-.t4s-eff-plus-zoom-overlay::after {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  visibility: hidden;
-}
+/*
+* .t4s-eff-plus-zoom-overlay::before, 
+* .t4s-eff-plus-zoom-overlay::after {
+*   top: 0;
+*   bottom: 0;
+*   left: 0;
+*   right: 0;
+*   opacity: 0;
+*   visibility: hidden;
+* }
+*/
 .t4s-eff-dark-overlay::before {
    position: absolute;
    content: '';
@@ -138,14 +146,20 @@
    border-radius: inherit;
    opacity: 0;
    visibility: hidden;
+   background-color: var(--btn-background);
+   border-color: var(--btn-background);
 }
 .t4s-btn:not(.t4s-btn-effect-default):not(.t4s-btn-effect-overlay-run)::before {
    transition: 0.3s ease-in-out;
 }
-.t4s-btn::before {
-  background-color: var(--btn-background);
-  border-color: var(--btn-background);
-}
+
+/* 
+* .t4s-btn::before {
+*  background-color: var(--btn-background);
+*  border-color: var(--btn-background);
+* }
+*/
+
 .t4s-btn-effect-default::before {
   top: 0;
   left: 0;
@@ -367,7 +381,6 @@
   .t4s-btn-effect-sweep-to-left:hover:before,
   .t4s-btn-effect-sweep-to-right:hover:before,
   .t4s-btn-effect-sweep-to-top:hover:before,
-  .t4s-btn-effect-sweep-to-bottom:hover:before,
   .t4s-btn-effect-sweep-to-bottom:hover:before {
       transform: scale(1);
   }

@@ -16,7 +16,7 @@
     background-color: rgba(var(--text-color-rgb), 0.1);
     padding:0px !important;
     cursor: pointer;
-    min-height: 56px !important;; 
+    min-height: 56px !important;
 }
 .t4s-mb-tab__title.is--active{
     background-color: rgba(var(--text-color-rgb), 0.15);
@@ -28,7 +28,7 @@
     letter-spacing: .3px;
     font-weight: 500;
     font-size: 12px;
-    color: var(--secondary-color);;
+    color: var(--secondary-color);
     padding: 5px 10px;
     height: 55px;
     cursor: pointer;
@@ -73,7 +73,7 @@ ul#menu-mb__ul,
     padding-inline-start: 0px;
     margin-bottom: 0px;
 }
-.t4s-mb__menu .t4s-sub-menu,x
+.t4s-mb__menu .t4s-sub-menu,
 .t4s-mb__menu .t4s-sub-sub-menu,
 .t4s-mb__menu  .t4s-sub-sub-sub-menu,
 #menu-mb__ul ul {
@@ -283,10 +283,12 @@ ul#menu-mb__cat{
     color: var(--accent-color);
 }
 /* Style button close */
-.t4s-drawer-menu__close{
+.t4s-drawer-menu__close {
     position: fixed;
-    left: 300px;
-    top: 0;
+    /* 
+    * left: 300px;
+    */
+    top: 0; 
     color: var(--secondary-color);
     z-index: 10000;
     background-color: var(--t4s-body-background);
@@ -295,6 +297,7 @@ ul#menu-mb__cat{
     width: 50px;
     height: 50px;
     padding: 0;
+    left: calc(100vw - 65px);
 }
 .t4s-drawer-menu__close svg.t4s-iconsvg-close {
     width: 20px;
@@ -306,9 +309,6 @@ ul#menu-mb__cat{
     pointer-events: auto;
 }
 
-.t4s-drawer-menu__close {
-    left: calc(100vw - 65px);
-}
 @media (min-width: 641px){
     .t4s-drawer-menu__close{
         left: 340px;

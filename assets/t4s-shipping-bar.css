@@ -26,12 +26,14 @@
     display: inline-block
 }
 
-.t4s-cart-thes__bar>span {
-    width: 0;
-    border-radius: 5px;
-    background-color: var(--main-threshold-color);
-    transition: width .4s ease-in-out
-}
+/* 
+* .t4s-cart-thes__bar>span {
+*     width: 0;
+*     border-radius: 5px;
+*     background-color: var(--main-threshold-color);
+*     transition: width .4s ease-in-out
+* } 
+*/
 
 .t4s-cart-thes__bar span>svg {
     position: absolute;
@@ -52,6 +54,10 @@
     fill: var(--t4s-light-color);
 }
 .t4s-cart-thes__bar>span {
+    width: 0;
+    border-radius: 5px;
+    background-color: var(--main-threshold-color);
+    transition: width .4s ease-in-out
     animation: 5s linear infinite bar-progress;
     background-size: 1rem 1rem;
     background-image: linear-gradient(135deg ,rgba(255,255,255,.15) 0,rgba(255,255,255,.15) 25%,rgba(255,255,255,0) 25%,rgba(255,255,255,0) 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,rgba(255,255,255,0) 75%,rgba(255,255,255,0) 100%)

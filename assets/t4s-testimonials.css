@@ -131,6 +131,9 @@
     border-bottom-style: solid;
     border-width: 1px;
 	color: var(--cl-bd);
+  	border-color: var(--cl-bd);
+    padding: 41px 20px 49px;
+	background: var(--cl-bg);
 }
 .t4s-quotes-des-4 .t4s-quote-avatar {
 	width: 80px;
@@ -156,12 +159,16 @@
 	margin-top: 0;
 	margin-bottom: 30px;
 }
-.t4s-quotes-des-4 .t4s-rating-wapper{margin-top: 5px;}
-.t4s-quotes-des-4 .t4s-testimonial-item {
-	border-color: var(--cl-bd);
-    padding: 41px 20px 49px;
-	background: var(--cl-bg);
+.t4s-quotes-des-4 .t4s-rating-wapper {
+  margin-top: 5px;
 }
+/* 
+* .t4s-quotes-des-4 .t4s-testimonial-item {
+* 	border-color: var(--cl-bd);
+*   padding: 41px 20px 49px;
+* 	background: var(--cl-bg);
+* } 
+*/
 .t4s-quotes-des-5 .t4s-testimonial-inner, 
 .t4s-quotes-des-6 .t4s-testimonial-inner {
 	border: 1px solid var(--cl-bd);

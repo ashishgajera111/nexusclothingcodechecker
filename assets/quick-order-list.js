@@ -3,14 +3,18 @@ let ON_CHANGE_DEBOUNCE_TIMER = 300;
 class BulkAdd extends HTMLElement {
   constructor() {
     super();
-    // console.log("init  BulkAdd");
+    /*
+    * console.log("init  BulkAdd");
+    */
     this.queue = [];
     this.requestStarted = false;
     this.ids = [];
   }
 
   startQueue(id, quantity) {
-    // console.log(quantity);
+    /*
+    * console.log(quantity);
+    */
     this.queue.push({ id, quantity });
     const interval = setInterval(() => {
       if (this.queue.length > 0) {
@@ -73,7 +77,9 @@ class BulkAdd extends HTMLElement {
   }
 
   getSectionInnerHTML(html, selector) {
-    // console.log(new DOMParser().parseFromString(html, 'text/html'));
+    /*
+    * console.log(new DOMParser().parseFromString(html, 'text/html'));
+    */
     return new DOMParser().parseFromString(html, 'text/html').querySelector(selector).innerHTML;
   }
 }
@@ -92,17 +98,23 @@ class QuantityInput extends HTMLElement {
 
   connectedCallback() {
     this.validateQtyRules();
-    // this.quantityUpdateUnsubscriber = subscribe(PUB_SUB_EVENTS.quantityUpdate, this.validateQtyRules.bind(this));
+    /*
+    * this.quantityUpdateUnsubscriber = subscribe(PUB_SUB_EVENTS.quantityUpdate, this.validateQtyRules.bind(this));
+    */
   }
 
   disconnectedCallback() {
-    // if (this.quantityUpdateUnsubscriber) {
-    //   this.quantityUpdateUnsubscriber();
-    // }
+    /*
+    * if (this.quantityUpdateUnsubscriber) {
+    *   this.quantityUpdateUnsubscriber();
+    * }
+    */
   }
 
   onInputChange(event) {
-    // console.log("change");
+    /*
+    * console.log("change");
+    */
     this.validateQtyRules();
   }
 
@@ -131,7 +143,9 @@ class QuantityInput extends HTMLElement {
     
     const value = parseInt(this.input.value);
     const current_value = parseInt(this.input.dataset.currentValue);
-    // console.log(this.input.min);
+    /*
+    * console.log(this.input.min);
+    */
     if (this.input.min != undefined) {
       const buttonMinus = this.querySelector("button[name='minus']");
       value <= parseInt(this.input.min) ? buttonMinus.setAttribute('disabled', '') : buttonMinus.removeAttribute('disabled');
@@ -145,17 +159,26 @@ class QuantityInput extends HTMLElement {
     if(value > parseInt(this.input.max)){
       this.input.value = parseInt(this.input.max);
       T4SThemeSP.Notices(T4Sstrings.notice_stock_msg.replace('[max]', parseInt(this.input.max)));
-      // return;
+      /*
+      * return;
+      */
     }
 
     if(!value) {
       this.input.value = current_value;
       return;
     }
-    value < parseInt(this.input.min) ? this.input.value = current_value : this.input.setAttribute('data-current-value', value);
-    // console.log(value);
-
     
+    if (value < parseInt(this.input.min)) {
+        this.input.value = current_value;
+    } else {
+        this.input.setAttribute('data-current-value', value);
+    }
+
+    /*
+    * value < parseInt(this.input.min) ? this.input.value = current_value : this.input.setAttribute('data-current-value', value);
+    * console.log(value);
+    */
   }
 }
 customElements.define('quantity-input', QuantityInput);
@@ -233,7 +256,9 @@ customElements.define(
 class QuickOrderList extends BulkAdd {
   constructor() {
     super();
-    // console.log("init quick order list");
+    /*
+    * console.log("init quick order list");
+    */
     this.cart = document.querySelector('#t4s-mini_cart');
     window.QuickOrderListID = `${this.dataset.section}`;
     this.quickOrderListId = `${this.dataset.section}-${this.dataset.productId}`;
@@ -256,24 +281,25 @@ class QuickOrderList extends BulkAdd {
   }
 
   connectedCallback() {
-
-    // this.cartUpdateUnsubscriber = subscribe(PUB_SUB_EVENTS.cartUpdate, (event) => {
-    //   const variantIds = [];
-    //   this.querySelectorAll('.variant-item').forEach((item) => {
-    //     variantIds.push(parseInt(item.dataset.variantId));
-    //   });
-    //   if (
-    //     event.source === this.quickOrderListId ||
-    //     !event.cartData.items?.some((element) => variantIds.includes(element.variant_id))
-    //   ) {
-    //     return;
-    //   }
-    //   // If its another section that made the update
-    //   this.refresh().then(() => {
-    //     this.defineInputsAndQuickOrderTable();
-    //     this.addMultipleDebounce();
-    //   });
-    // });
+    /*
+    * this.cartUpdateUnsubscriber = subscribe(PUB_SUB_EVENTS.cartUpdate, (event) => {
+    *   const variantIds = [];
+    *   this.querySelectorAll('.variant-item').forEach((item) => {
+    *     variantIds.push(parseInt(item.dataset.variantId));
+    *   });
+    *   if (
+    *     event.source === this.quickOrderListId ||
+    *     !event.cartData.items?.some((element) => variantIds.includes(element.variant_id))
+    *   ) {
+    *     return;
+    *   }
+    * * If its another section that made the update
+    *   this.refresh().then(() => {
+    *     this.defineInputsAndQuickOrderTable();
+    *     this.addMultipleDebounce();
+    *   });
+    * });
+    */
     this.sectionId = this.dataset.section;
   }
 
@@ -283,8 +309,10 @@ class QuickOrderList extends BulkAdd {
 
   defineInputsAndQuickOrderTable() {
     this.allInputsArray = Array.from(this.querySelectorAll('input[type="number"]'));
-    // this.quickOrderListTable = this.querySelector('.t4s-quick-order-list__table');
-    // this.quickOrderListTable.addEventListener('focusin', this.switchVariants.bind(this));
+    /*
+    * this.quickOrderListTable = this.querySelector('.t4s-quick-order-list__table');
+    * this.quickOrderListTable.addEventListener('focusin', this.switchVariants.bind(this));
+    */
   }
 
   onChange(event) {
@@ -366,28 +394,43 @@ class QuickOrderList extends BulkAdd {
 
   renderSections(parsedState, ids) {
     this.ids.push(ids);
-    // console.log(parsedState)
+    /*
+    * console.log(parsedState);
+    */
     const intersection = this.queue.filter((element) => ids.includes(element.id));
     if (intersection.length !== 0) return;
 
     this.getSectionsToRender().forEach((section) => {
       const sectionElement = document.getElementById(section.id);
-      if (
-        sectionElement &&
-        sectionElement.parentElement &&
-        sectionElement.parentElement.classList.contains('t4s-drawer')
-      ) {
+      /*
+      * if (
+      *  sectionElement &&
+      *  sectionElement.parentElement &&
+      *  sectionElement.parentElement.classList.contains('t4s-drawer')
+      * ) {
+      */
+      if (sectionElement?.parentElement?.classList.contains('t4s-drawer')) {
         parsedState.items.length > 0
           ? sectionElement.parentElement.classList.remove('is-empty')
           : sectionElement.parentElement.classList.add('is-empty');
         setTimeout(() => {
-          // document.querySelector('#CartDrawer-Overlay').addEventListener('click', this.cart.close.bind(this.cart));
+          /*
+          * document.querySelector('#CartDrawer-Overlay').addEventListener('click', this.cart.close.bind(this.cart));
+          */
         });
       }
-      const elementToReplace =
-        sectionElement && sectionElement.querySelector(section.selector)
-          ? sectionElement.querySelector(section.selector)
-          : sectionElement;
+
+      /*
+      * const elementToReplace =
+      * sectionElement && sectionElement.querySelector(section.selector)
+      *   ? sectionElement.querySelector(section.selector)
+      *   : sectionElement;
+      */
+      
+       const elementToReplace = 
+        sectionElement?.querySelector(section.selector)
+        ? sectionElement.querySelector(section.selector)
+        : sectionElement;
       if (elementToReplace) {
         if (section.selector === `#${this.quickOrderListId} .t4s-quick-order-list-content` && this.ids.length > 0) {
           this.ids.flat().forEach((i) => {
@@ -455,7 +498,9 @@ class QuickOrderList extends BulkAdd {
   }
 
   updateMultipleQty(items) {
-    // this.querySelector('.variant-remove-total .loading__spinner')?.classList.remove('hidden');
+    /*
+    * this.querySelector('.variant-remove-total .loading__spinner')?.classList.remove('hidden');
+    */
     const ids = Object.keys(items);
 
     const body = JSON.stringify({
@@ -463,9 +508,11 @@ class QuickOrderList extends BulkAdd {
       sections: this.getSectionsToRender().map((section) => section.section),
       sections_url: this.dataset.url,
     });
-    // this.updateMessage();
-    // this.setErrorMessage();
-    // console.log("Start");
+    /*
+    * this.updateMessage();
+    * this.setErrorMessage();
+    * console.log("Start");
+    */
     this.setAttribute('aria-busy',true)
     fetch(`${T4Sroutes.cart_update_url}`, { ...fetchConfig(), ...{ body } })
       .then((response) => {
@@ -476,19 +523,25 @@ class QuickOrderList extends BulkAdd {
         this.renderSections(parsedState, ids);
         document.dispatchEvent(new CustomEvent('cart:refresh'));
         document.body.dispatchEvent(new CustomEvent('currency:update'))
-        // $body.trigger('currency:update');
-        // console.log("End => Done then");
-        // publish(PUB_SUB_EVENTS.cartUpdate, { source: this.quickOrderListId, cartData: parsedState });
+        /*
+        * $body.trigger('currency:update');
+        * console.log("End => Done then");
+        * publish(PUB_SUB_EVENTS.cartUpdate, { source: this.quickOrderListId, cartData: parsedState });
+        */
       })
       .catch((error) => {
-        // this.setErrorMessage(window.cartStrings.error);
         console.log(error);
-        // console.log("End 2 => Error");
+        /*
+        * this.setErrorMessage(window.cartStrings.error);
+        * console.log("End 2 => Error");
+        */
       })
       .finally(() => {
-        // this.querySelector('.variant-remove-total .loading__spinner')?.classList.add('hidden');
+        /*
+        * this.querySelector('.variant-remove-total .loading__spinner')?.classList.add('hidden');
+        * console.log("End 3 => Finally!");
+        */
         this.requestStarted = false;
-        // console.log("End 3 => Finally!");
         this.setAttribute('aria-busy',false)
       });
   }
@@ -520,13 +573,23 @@ class QuickOrderList extends BulkAdd {
     const isQuantityNegative = quantity < 0;
     const absQuantity = Math.abs(quantity);
 
-    const textTemplate = isQuantityNegative
-      ? absQuantity === 1
-        ? window.quickOrderListStrings.itemRemoved
-        : window.quickOrderListStrings.itemsRemoved
-      : quantity === 1
-      ? window.quickOrderListStrings.itemAdded
-      : window.quickOrderListStrings.itemsAdded;
+    /*
+    * const textTemplate = isQuantityNegative
+    *  ? absQuantity === 1
+    *    ? window.quickOrderListStrings.itemRemoved
+    *    : window.quickOrderListStrings.itemsRemoved
+    * : quantity === 1
+    * ? window.quickOrderListStrings.itemAdded
+    * : window.quickOrderListStrings.itemsAdded;
+    */
+    
+    let textTemplate;
+    
+    if (isQuantityNegative) {
+      textTemplate = absQuantity === 1 ? window.quickOrderListStrings.itemRemoved : window.quickOrderListStrings.itemsRemoved;
+    } else {
+      textTemplate = quantity === 1 ? window.quickOrderListStrings.itemAdded : window.quickOrderListStrings.itemsAdded;
+    }
 
     messages.forEach((msg) => (msg.innerHTML = textTemplate.replace('[quantity]', absQuantity)));
 
@@ -545,10 +608,12 @@ class QuickOrderList extends BulkAdd {
     this.updateLiveRegions(id, message);
   }
 
-  cleanErrors(id) {
-    // this.querySelectorAll('.desktop-row-error').forEach((error) => error.classList.add('hidden'));
-    // this.querySelectorAll(`.variant-item__error-text`).forEach((error) => error.innerHTML = '');
-  }
+  /*
+  * cleanErrors(id) {
+  *  // this.querySelectorAll('.desktop-row-error').forEach((error) => error.classList.add('hidden'));
+  *  // this.querySelectorAll(`.variant-item__error-text`).forEach((error) => error.innerHTML = '');
+  * }
+  */
 
   updateLiveRegions(id, message) {
     const variantItemErrorDesktop = document.getElementById(`Quick-order-list-item-error-desktop-${id}`);

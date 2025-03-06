@@ -6,8 +6,6 @@
   --bottom-mb           : 20px;
   --scrollbar-raidus    : 5px;
   --scrollbar-height    : 3px;
-}
-.is--scrollbar_true {
   --bottom-scrollbar: var(--bottom-mb);
 }
 @media (min-width: 768px) {

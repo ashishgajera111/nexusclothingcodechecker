@@ -454,7 +454,9 @@ select {
 }
 blockquote,
 q {
-    quotes: none;
+    /* 
+    * quotes: none;
+    */
     position: relative;
     margin-bottom: 20px;
     font-style: italic;
@@ -2958,8 +2960,6 @@ input.t4s-quantity-input[type="number"]::-webkit-outer-spin-button {
     }
     a:hover {
         color: #242424;
-    }
-    a:hover {
         outline: 0;
         text-decoration: none;
     }
@@ -3038,9 +3038,11 @@ input.t4s-quantity-input[type="number"]::-webkit-outer-spin-button {
 .ske-h-40 {
   height: 40px;
 }
-.ske-h-50 {
-  height: 50px;
-}
+/*
+* .ske-h-50 {
+*  height: 50px;
+* }
+*/
 .ske-h-50 {
   height: 55px;
 }

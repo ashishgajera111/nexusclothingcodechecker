@@ -166,10 +166,8 @@
     transition: .5s;
     right: 0;
     display: inline-flex;
-    overflow: hidden;
     position: relative;
     pointer-events: auto;
-	max-width: 100%;
     box-shadow: 0 5px 15px #00000026;
     border-radius: var(--btn-radius);
     overflow: hidden;

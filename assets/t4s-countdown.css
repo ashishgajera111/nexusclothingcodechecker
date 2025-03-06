@@ -81,7 +81,6 @@
 	min-width: 1px;
 	min-height: 1px;
 	padding: 0;
-	border-radius: 0;
 	display: block;
 	border-radius: 0;
 }
@@ -182,9 +181,6 @@
 	.t4s-countdown{
 		margin-bottom: var(--mgb-mb);
 	}
-    .t4s-countdown .t4s-time > span {
-     	margin: 0 calc(var(--space-item-mb)/2);
-  	}
     .t4s-countdown.t4s-countdown-size-medium .t4s-time>span, .t4s-countdown-des-2.t4s-countdown-size-medium .t4s-time>span {
         margin: 0 5px;
     }
@@ -193,6 +189,7 @@
         font-size: 14px;
     }
   	.t4s-countdown .t4s-time > span {
+        margin: 0 calc(var(--space-item-mb)/2);
 	    min-width: 36px;
 	    min-height: 36px;
 	}

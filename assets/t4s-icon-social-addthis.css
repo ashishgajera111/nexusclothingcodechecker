@@ -41,13 +41,11 @@
     --telegram-cl: rgb(0, 136, 204);
     --messenger-cl: rgb(130,205,242);
 }
-.t4s-socials.t4s__addthis a {
-	text-align: center;
-}
 .t4s-socials.t4s__addthis a:last-child {
 	margin-right: 0;
 }
 .t4s-socials.t4s__addthis a {
+  	text-align: center;
 	vertical-align: top;
     transition: all 0.5s ease;
     display: inline-flex;
@@ -74,9 +72,7 @@
 	display: inline-block;
 	vertical-align: middle;
 	border: none;
-}
-.t4s-socials.t4s__addthis a svg {
-	height: 24px !important;
+  	height: 24px !important;
 	width: 24px !important;
 }
 .t4s-socials.t4s-socials-style-1 a {
@@ -156,14 +152,14 @@
 .t4s-product__social.t4s__addthis.t4s-setts-color-true.t4s-socials-style-2 .at-resp-share-element .at-share-btn:focus, 
 .t4s-product__social.t4s__addthis.t4s-setts-color-true.t4s-socials-style-2 .at-resp-share-element .at-share-btn:hover {
 	color: var(--t4s-light-color) !important;
-	background-color: var(--bg-cl) !important;
 	background: var(--bg-cl) !important;
+	background-color: var(--bg-cl) !important;
 }
 .t4s-product__social.t4s__addthis.t4s-socials-style-3 .at-resp-share-element .at-share-btn {
 	border: solid 2px var(--text-color);
 	color: var(--text-color);
-	background-color: transparent !important;
 	background: transparent !important;
+	background-color: transparent !important;
 }
 
 .t4s-socials.t4s-socials-style-3 a.at-svc-facebook:hover {color: var(--facebook-cl) !important;border-color: var(--facebook-cl) !important;}

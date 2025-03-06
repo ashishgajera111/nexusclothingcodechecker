@@ -199,10 +199,12 @@
   }
 }
 .animate__bounceIn {
-  -webkit-animation-duration: calc(1s * 0.75);
-  animation-duration: calc(1s * 0.75);
-  -webkit-animation-duration: calc(var(--animate-duration) * 0.75);
-  animation-duration: calc(var(--animate-duration) * 0.75);
+  /* 
+  * -webkit-animation-duration: calc(1s * 0.75);
+  * animation-duration: calc(1s * 0.75);
+  */
+  -webkit-animation-duration: calc(var(--animate-duration, 1s) * 0.75);
+  animation-duration: calc(var(--animate-duration, 1s) * 0.75);
   -webkit-animation-name: bounceIn;
   animation-name: bounceIn;
 }

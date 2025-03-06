@@ -19,20 +19,22 @@
   cursor: ew-resize;
   cursor: -webkit-grabbing;
 }
-/* .t4s-threesixty:after {
-  content: '';
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  right: 15px;
-  height: 50%;
-  z-index: 5;
-  border-bottom: 5px solid rgba(175, 175, 175, 0.15);
-  border-top: 2px solid rgba(175, 175, 175, 0.05);
-  border-right: 2px solid rgba(175, 175, 175, 0.1);
-  border-left: 2px solid rgba(175, 175, 175, 0.1);
-  border-radius: 50%;
-} */
+/* 
+* .t4s-threesixty:after {
+*   content: '';
+*   position: absolute;
+*   bottom: 15px;
+*   left: 15px;
+*   right: 15px;
+*   height: 50%;
+*   z-index: 5;
+*   border-bottom: 5px solid rgba(175, 175, 175, 0.15);
+*   border-top: 2px solid rgba(175, 175, 175, 0.05);
+*   border-right: 2px solid rgba(175, 175, 175, 0.1);
+*   border-left: 2px solid rgba(175, 175, 175, 0.1);
+*   border-radius: 50%;
+* } 
+*/
 .t4s-threesixty .threed-title {
   position: relative;
   padding-top: 20px;
@@ -104,7 +106,9 @@
     transform: rotate(180deg);
 }
 .t4s-threesixty .nav_bar a {
-  display: inline-block;
+  /* 
+  * display: inline-block;
+  */
   width: 45px;
   height: 45px;
   display: -ms-inline-flexbox;

@@ -38,9 +38,6 @@
 .t4s-type_mn_link2>a:first-child {
     padding-top: 0;
 }
-.t4s-type_mn_link2>a:last-child {
-    padding-bottom: 0;
-}
 .t4s-type_mn_link2 > a:not(:hover) {
 	color: var(--secondary-color);
 }

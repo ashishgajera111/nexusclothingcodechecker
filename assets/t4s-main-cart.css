@@ -79,7 +79,9 @@ input[type=checkbox][data-agree-checkbox]+label:before {
     min-width: 16px;
     border: 1px solid var(--border-color);
     background: var(--t4s-color-light);
-    box-shadow: 0 1px rgb(212 214 216 / 40%);
+    /* 
+    * box-shadow: 0 1px rgb(212 214 216 / 40%);
+    */
     border-radius: 2px;
     appearance: none;
     box-shadow: none;
@@ -141,9 +143,9 @@ input[type=checkbox][data-agree-checkbox]:checked~svg {
     text-align: center;
     border-radius: var(--other-radius);
     display: block;
+    margin: 0 auto;
     margin-bottom: 15px;
     position: relative;
-    margin: 0 auto;
 }
 .t4s-main-cart .t4s-quantity-cart-item svg{
     width: 12px;
@@ -273,9 +275,12 @@ input[type=checkbox][data-agree-checkbox]:checked~svg {
     appearance: none;
     border-radius: var(--other-radius);
 }
-.t4s-main-cart .t4s-shipping_calculator input[type=text], .t4s-main-cart .t4s-shipping_calculator select {
-    border-radius: var(--btn-radius)!important;
-}
+/* 
+* .t4s-main-cart .t4s-shipping_calculator input[type=text], 
+* .t4s-main-cart .t4s-shipping_calculator select {
+*     border-radius: var(--btn-radius)!important;
+* } 
+*/
 .t4s-main-cart select {
     padding: 0 30px 0 15px;
     vertical-align: middle;
@@ -325,7 +330,9 @@ input[type=checkbox][data-agree-checkbox]:checked~svg {
     color: var(--secondary-color);
     text-align: center;
 }
-.t4s-shipping_calculator .t4s-field:last-child{margin-bottom: 0px;}
+.t4s-shipping_calculator .t4s-field:last-child {
+  margin-bottom: 0px;
+}
 
 .t4s-main-cart .t4s-shipping_calculator input[type=text],
 .t4s-main-cart .t4s-shipping_calculator select {

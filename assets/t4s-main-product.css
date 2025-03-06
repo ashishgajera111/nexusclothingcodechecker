@@ -16,21 +16,23 @@
 }
 /* End hover thumb 1 */
 /* Hover thumb 2 */
-/*   .t4s-product__thumb-item {
-  overflow: hidden
-}
-.t4s-product__thumb-item .t4s-product__thumb {
-  margin-bottom: -5px; 
-  opacity: .5;
-  transition: transform .6s,opacity .6s;
-  transform: translateY(0);
-  overflow: hidden
-}
-.t4s-product__thumb-item.is-nav-selected .t4s-product__thumb, 
-.t4s-product__thumb-item:hover .t4s-product__thumb {
-  transform: translateY(-5px);
-  opacity: 1;
-} */
+/*   
+* .t4s-product__thumb-item {
+*   overflow: hidden
+* }
+* .t4s-product__thumb-item .t4s-product__thumb {
+*   margin-bottom: -5px; 
+*   opacity: .5;
+*   transition: transform .6s,opacity .6s;
+*   transform: translateY(0);
+*   overflow: hidden
+* }
+* .t4s-product__thumb-item.is-nav-selected .t4s-product__thumb, 
+* .t4s-product__thumb-item:hover .t4s-product__thumb {
+*   transform: translateY(-5px);
+*   opacity: 1;
+* } 
+*/
 /* End hover thumb 2 */
 .t4s-product__info-container > :not(:last-child) {
   margin-bottom: 20px;
@@ -125,9 +127,11 @@
 
   .t4s-product-media__thumbnails_left .t4s-col-thumb .t4s-row,
   .t4s-product-media__thumbnails_right .t4s-col-thumb .t4s-row {
-    /*       flex-direction: column;    
-    flex-wrap: wrap;
-    overflow: visible; */
+    /*       
+    * flex-direction: column;    
+    * flex-wrap: wrap;
+    * overflow: visible; 
+    */
     flex-wrap: wrap;
   }
   .t4s-product-media__thumbnails_left .t4s-col-thumb .t4s-row > .t4s-col-item,
@@ -151,7 +155,9 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    /* padding-right: 10px; */
+    /* 
+    * padding-right: 10px; 
+    */
     max-width: 80px;
   }
   button.btn_pnav_prev,
@@ -319,9 +325,6 @@
 .plyr--full-ui button,
 .plyr--full-ui input,
 .plyr--full-ui label {
-  pointer-events: auto !important;
-}
-.plyr--full-ui a, .plyr--full-ui button, .plyr--full-ui input, .plyr--full-ui label {
   pointer-events: auto !important;
 }
 @media (max-width: 1024px) {
@@ -884,7 +887,9 @@ button.t4s-product__description_readm {
   color: var(--secondary-color);
   margin: 0 5px;
   text-decoration: underline;
-  /* display: inline-block; */
+  /* 
+  * display: inline-block;
+  */
 }
 
 .t4s-collections-wrapper a:not(:last-child):after,

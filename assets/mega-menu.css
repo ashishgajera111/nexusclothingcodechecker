@@ -40,10 +40,6 @@
     padding-top: 0;
 }
 
-.type_mn_link2 > a:last-child {
-    padding-bottom: 0;
-}
-
 .type_mn_link2 > a:not(:hover) {
     color: var(--secondary-color);
 }
@@ -123,7 +119,6 @@
     display: flex;
     box-shadow: 0 0 9px rgb(0 0 0 / 15%);
     position: relative;
-    transition: 0.3s;
     top: 0;
     transition: 0.3s ease 0s;
     margin-bottom: 20px;
@@ -163,7 +158,6 @@
     z-index: 2;
     top: 0;
     right: 0;
-    font-size: 12px;
     line-height: 16px;
     letter-spacing: 0.4px;
     text-transform: uppercase;

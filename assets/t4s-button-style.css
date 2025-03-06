@@ -135,17 +135,22 @@ svg.t4s-btn-icon{
     padding: 0!important;
     border-radius: 0!important;
     background-color: transparent!important;
+    --btn-border          : var(--pri-cl);
+    --btn-border-hover    : var(--pri-cl-hover);
+    border-top: solid 2px;
 }
 .t4s-btn-style-bordered {
     --btn-border          : var(--pri-cl);
     --btn-border-hover    : var(--pri-cl-hover);
     border-bottom: solid 1px;
 }
-.t4s-btn-style-bordered_top {
-    --btn-border          : var(--pri-cl);
-    --btn-border-hover    : var(--pri-cl-hover);
-    border-top: solid 2px;
-}
+/*
+* .t4s-btn-style-bordered_top {
+*    --btn-border          : var(--pri-cl);
+*    --btn-border-hover    : var(--pri-cl-hover);
+*    border-top: solid 2px;
+* }
+*/
 /*Static button*/
 .t4s-btn-base {
     font-family: inherit;

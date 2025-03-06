@@ -64,8 +64,7 @@
     display: none
 }
 
-#t4s-login-sidebar .t4s_field input::-webkit-autofill,
-#t4s-login-sidebar .t4s_field input::autofill {
+#t4s-login-sidebar .t4s_field input::-webkit-autofill {
     color: inherit
 }
 
